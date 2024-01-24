@@ -6,14 +6,14 @@ public class BeatmapEditor : MonoBehaviour
 {
     public GameObject beatmapPrefab;
 
-    public GameObject currentBeatmap;
+    public Beatmap currentBeatmap;
 
     [EditorCools.Button]
     private void CreateNewBeatmap()
     {
         GameObject newMap = Instantiate(beatmapPrefab);
         newMap.transform.parent = transform;
-        currentBeatmap = newMap;
+        currentBeatmap = newMap.GetComponent<Beatmap>();
         newMap.name = "New Beatmap";
         Debug.Log("Beatmap Created!");
     }
