@@ -51,6 +51,7 @@ MonoBehaviour:
     length: 0
     _beatLengthType: 0
     _beatTimeType: 0
+  myCube: {fileID: 1004774236696436085}
 --- !u!1001 &2380015982657072088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,5 +116,10 @@ PrefabInstance:
 --- !u!4 &968558649190513932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3203890127468697300, guid: 0c038952b211e434fa26e41ae7c7e250, type: 3}
+  m_PrefabInstance: {fileID: 2380015982657072088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1004774236696436085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3239828888360564397, guid: 0c038952b211e434fa26e41ae7c7e250, type: 3}
   m_PrefabInstance: {fileID: 2380015982657072088}
   m_PrefabAsset: {fileID: 0}

@@ -8,6 +8,7 @@ public class ForwardBeat
 {
     public float beatTime = 0f;
     public float length = 0f;
+    public bool isDirty = false;
     public BeatLengthType _beatLengthType;
     public BeatLengthType beatLengthType
     {
@@ -29,6 +30,12 @@ public class ForwardBeat
     }
     public void UpdateValues()
     {
+        float newLength = GetBeatLengthVal(_beatLengthType);
+        float newTime = GetBeatTimeVal(_beatTimeType);
+        if(newLength != length || newTime != beatTime)
+        {
+            isDirty = true;
+        }
         length = GetBeatLengthVal(_beatLengthType);
         beatTime = GetBeatTimeVal(_beatTimeType);
     }
@@ -53,8 +60,9 @@ public class ForwardBeat
             case BeatTimingType.B1_4th: return 0.25f;
             case BeatTimingType.B1_3rd: return 0.3333f;
             case BeatTimingType.B1_2nd: return 0.5f;
-            case BeatTimingType.B_full: return 1f;
+            case BeatTimingType.B_single: return 1f;
             case BeatTimingType.B_double: return 2f;
+            case BeatTimingType.B_full: return 4f;
             default: return 0f;
         }
     }
@@ -96,6 +104,7 @@ public enum BeatTimingType
     B1_4th,
     B1_3rd,
     B1_2nd,
+    B_single,
+    B_double,
     B_full,
-    B_double
 }

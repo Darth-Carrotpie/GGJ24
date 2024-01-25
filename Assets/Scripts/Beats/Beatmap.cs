@@ -19,4 +19,17 @@ public class Beatmap : MonoBehaviour
         beats.RemoveAt(index);
     }
 
+    private void OnValidate()
+    {
+        for (int i = 0; i < beats.Count; i++)
+        {
+            beats[i].UpdateValues();
+            if (beats[i].isDirty)
+            {
+                beats[i].isDirty = false;
+                BeatmapEditor.OnBeatEdit(this, beats[i], i);
+            }
+        }
+    }
+
 }

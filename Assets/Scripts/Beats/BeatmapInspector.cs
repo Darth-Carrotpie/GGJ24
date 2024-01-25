@@ -44,10 +44,6 @@ public class BeatmapInspector : Editor
     {
         GetTarget.Update();
 
-        if (GUILayout.Button("Add New"))
-        {
-            t.beats.Add(new ForwardBeat());
-        }
         /*if (GUILayout.Button("Update Scene"))
         {
             SceneView.lastActiveSceneView.Repaint();
@@ -79,7 +75,7 @@ public class BeatmapInspector : Editor
             lenGridInt = GUILayout.SelectionGrid(lenGridInt, lenStrings, 3);
             beatLengthType.intValue = lenGridInt;
             GUILayout.EndVertical();
-            t.beats[i].UpdateValues();
+            //t.beats[i].UpdateValues();
             //type.intValue = EditorGUILayout.IntField("type", type.intValue, GUILayout.ExpandWidth(false));
             //length.floatValue = EditorGUILayout.FloatField("length", length.floatValue, GUILayout.ExpandWidth(false));
             //beatTime.floatValue = EditorGUILayout.FloatField("beatTime", beatTime.floatValue, GUILayout.ExpandWidth(false));
@@ -94,6 +90,7 @@ public class BeatmapInspector : Editor
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Remove This Index (" + i.ToString() + ")"))
             {
+                BeatmapEditor.OnBeatRemoved(t, i);
                 ThisBeatList.DeleteArrayElementAtIndex(i);
             }
             EditorGUILayout.Space();
@@ -101,7 +98,16 @@ public class BeatmapInspector : Editor
             if (GUILayout.Button("Insert New"))
             {
                 t.beats.Insert(i+1, new ForwardBeat());
+                BeatmapEditor.OnBeatAdded(t, t.beats[i+1], i + 1);
+
             }
+            if (GUILayout.Button("Focus This"))
+            {
+                GameObject beat = BeatmapEditor.GetBeatAt(t, i);
+                SceneView.lastActiveSceneView.LookAt(beat.transform.position);
+                Selection.activeTransform = beat.transform;
+            }
+
             GUILayout.EndHorizontal();
             EditorGUILayout.Space();
             EditorGUILayout.Space();
@@ -110,6 +116,38 @@ public class BeatmapInspector : Editor
             EditorGUILayout.Space();
         }
 
+            GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Add Pause"))
+        {
+            ForwardBeat newBeat = new ForwardBeat();
+            t.beats.Add(newBeat);
+            BeatmapEditor.OnBeatAdded(t, newBeat);
+        }
+        if (GUILayout.Button("Add Mini"))
+        {
+            ForwardBeat newBeat = new ForwardBeat();
+            newBeat.beatLengthType = BeatLengthType.mini;
+            t.beats.Add(newBeat);
+            GameObject newBeatCube = BeatmapEditor.OnBeatAdded(t, newBeat);
+            SceneView.lastActiveSceneView.LookAt(newBeatCube.transform.position);
+        }
+        if (GUILayout.Button("Add Medium"))
+        {
+            ForwardBeat newBeat = new ForwardBeat();
+            newBeat.beatLengthType = BeatLengthType.medium;
+            t.beats.Add(newBeat);
+            GameObject newBeatCube = BeatmapEditor.OnBeatAdded(t, newBeat);
+            SceneView.lastActiveSceneView.LookAt(newBeatCube.transform.position);
+        }
+        if (GUILayout.Button("Add Big"))
+        {
+            ForwardBeat newBeat = new ForwardBeat();
+            newBeat.beatLengthType = BeatLengthType.big;
+            t.beats.Add(newBeat);
+            GameObject newBeatCube = BeatmapEditor.OnBeatAdded(t, newBeat);
+            SceneView.lastActiveSceneView.LookAt(newBeatCube.transform.position);
+        }
+        GUILayout.EndHorizontal();
         //Apply the changes to our list
         GetTarget.ApplyModifiedProperties();
     }

@@ -34,6 +34,41 @@ public class BeatmapEditor : Singleton<BeatmapEditor>
 
     public float padding = 0.05f;
 
+    public static GameObject OnBeatAdded(Beatmap beatmap, ForwardBeat beat)
+    {
+        ForwardBeatType thisType = beatmap.type;
+        BeatCubeContainer cont = Instance.GetContainer(thisType);
+
+        return cont.CreateBeatCube(beat);
+    }
+    public static GameObject OnBeatAdded(Beatmap beatmap, ForwardBeat beat, int removeAt)
+    {
+        ForwardBeatType thisType = beatmap.type;
+        BeatCubeContainer cont = Instance.GetContainer(thisType);
+
+        return cont.CreateBeatCube(removeAt, beat);
+    }
+    public static void OnBeatRemoved(Beatmap beatmap, int removeAt)
+    {
+        ForwardBeatType thisType = beatmap.type;
+        BeatCubeContainer cont = Instance.GetContainer(thisType);
+
+        cont.RemoveCube(removeAt);
+    }
+    public static GameObject OnBeatEdit(Beatmap beatmap, ForwardBeat beat, int indexAt)
+    {
+        ForwardBeatType thisType = beatmap.type;
+        BeatCubeContainer cont = Instance.GetContainer(thisType);
+
+        return cont.EditCube(indexAt, beat);
+    }
+    public static GameObject GetBeatAt(Beatmap beatmap, int index)
+    {
+        ForwardBeatType thisType = beatmap.type;
+        BeatCubeContainer cont = Instance.GetContainer(thisType);
+
+        return cont.GetBeatCubeAt(index);
+    }
     void CeateAllBeatmaps()
     {
         beatCubeContList.Clear();

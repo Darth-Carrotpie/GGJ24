@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class BeatCubeContainer : MonoBehaviour
 {
@@ -19,16 +21,29 @@ public class BeatCubeContainer : MonoBehaviour
     {
         
     }
-    public void EditCube(int indexAt)
+    public GameObject EditCube(int indexAt, ForwardBeat beat)
     {
-
+        GameObject cube = cubes[indexAt];
+        currOffset = cubes[indexAt].transform.position.y;
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            DestroyImmediate(cube);
+        };
+        GameObject newCube = CreateBeatCube(indexAt, beat);
+        AdjustCubesPos(indexAt);
+        Selection.activeTransform = newCube.transform;
+        return newCube;
+    }
+    public GameObject GetBeatCubeAt(int indexAt)
+    {
+        return cubes[indexAt];
     }
     public void RemoveCube(int indexAt)
     {
         //float cubeOffset = cubes[indexAt].GetComponent<BeatCube>().myOffset;
-        Destroy(gameObject);
-        cubes.RemoveAt(indexAt);
         currOffset = cubes[indexAt].transform.position.y;
+        DestroyImmediate(cubes[indexAt]);
+        cubes.RemoveAt(indexAt);
         AdjustCubesPos(indexAt);
     }
     public void GenerateCubes(Beatmap beatmap)
@@ -38,24 +53,45 @@ public class BeatCubeContainer : MonoBehaviour
             CreateBeatCube(beatmap.beats[i]);
         }
     }
-    public void CreateBeatCube(ForwardBeat beat)
+    public GameObject InsertCube(int indexAt, ForwardBeat beat)
     {
-        if (beat.beatLengthType != BeatLengthType.pause)
-        {
-            GameObject newCube = Instantiate(BeatmapEditor.GetBeatCube(beat.beatLengthType));
+        GameObject newCube = CreateBeatBase(beat);
+        cubes.Insert(indexAt, newCube);
+        return newCube;
+    }
+    public GameObject CreateBeatCube(int indexAt, ForwardBeat beat)
+    {
+        GameObject newCube = CreateBeatBase(beat);
+        cubes[indexAt]=newCube;
+        return newCube;
+    }
+    public GameObject CreateBeatCube(ForwardBeat beat)
+    {
+        GameObject newCube = CreateBeatBase(beat);
+        cubes.Add(newCube);
+        return newCube;
+    }
+    public GameObject CreateBeatBase(ForwardBeat beat)
+    {
+        GameObject newCube = Instantiate(BeatmapEditor.GetBeatCube(beat.beatLengthType));
             newCube.transform.parent = transform;
             Vector3 newOffset = new Vector3(0, currOffset, 0);
             newCube.transform.localPosition = newOffset;
-            newCube.GetComponent<BeatCube>().myOffset = currOffset;
-            newCube.GetComponent<BeatCube>().beat = beat;
+        BeatCube bcube = newCube.GetComponent<BeatCube>();
+        bcube.myOffset = currOffset;
+        bcube.beat = beat;
             newCube.GetComponentInChildren<Renderer>().material = GetBeatLineMat(beatType);
-            cubes.Add(newCube);
+        if (beat.beatLengthType == BeatLengthType.pause)
+        {
+            bcube.Hide();
         }
-        currOffset += System.Math.Max(beat.length, beat.beatTime) + BeatmapEditor.Instance.padding;
+        float inc = System.Math.Max(beat.length, beat.beatTime) + BeatmapEditor.Instance.padding;
+        currOffset += inc;
+        return newCube;
     }
     public void AdjustCubesPos(int indexAt)
     {
-        for (int i = indexAt; i < cubes.Count; i++)
+        for (int i = indexAt+1; i < cubes.Count; i++)
         {
             Vector3 newOffset = new Vector3(0, currOffset, 0);
             cubes[i].transform.localPosition = newOffset;
