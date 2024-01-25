@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Beatmap : MonoBehaviour
 {
-    public float bpm = 128f;
+    public ForwardBeatType type = ForwardBeatType.None;
     public List<ForwardBeat> beats = new List<ForwardBeat>();
 
     void AddNewBeat()

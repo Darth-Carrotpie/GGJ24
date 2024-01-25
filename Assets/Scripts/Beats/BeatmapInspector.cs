@@ -5,7 +5,7 @@ using System.Data.SqlTypes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-
+//Made this using info from this post: https://forum.unity.com/threads/display-a-list-class-with-a-custom-editor-script.227847/
 [InitializeOnLoad]
 [CustomEditor(typeof(Beatmap))]
 public class BeatmapInspector : Editor
@@ -16,6 +16,7 @@ public class BeatmapInspector : Editor
     Beatmap t;
     SerializedObject GetTarget;
     SerializedProperty ThisBeatList;
+    SerializedProperty BeatmapType;
     int ListSize;
 
     //SerializedProperty beats;
@@ -26,18 +27,18 @@ public class BeatmapInspector : Editor
         GetTarget = new SerializedObject(t);
         ThisBeatList = GetTarget.FindProperty("beats"); // Find the List in our script and create a refrence of it
                                                         //beats = GetTarget.FindProperty("beats");
-        Delegate del = Delegate.Combine(SceneView.onSceneGUIDelegate, new SceneView.OnSceneFunc(CustomOnSceneGUI));
+        BeatmapType = GetTarget.FindProperty("type");
+        /*Delegate del = Delegate.Combine(SceneView.onSceneGUIDelegate, new SceneView.OnSceneFunc(CustomOnSceneGUI));
 
         if (SceneView.onSceneGUIDelegate != (SceneView.OnSceneFunc)del)
         {
             SceneView.onSceneGUIDelegate += (SceneView.OnSceneFunc)del;
             Debug.Log("sub");
-        }
+        }*/
     }
     void OnDisable() { 
-        SceneView.onSceneGUIDelegate += (SceneView.OnSceneFunc)Delegate.Combine(SceneView.onSceneGUIDelegate, new SceneView.OnSceneFunc(CustomOnSceneGUI));
-        Debug.Log("unsub");
-
+        //SceneView.onSceneGUIDelegate += (SceneView.OnSceneFunc)Delegate.Combine(SceneView.onSceneGUIDelegate, new SceneView.OnSceneFunc(CustomOnSceneGUI));
+       // Debug.Log("unsub");
     }
     public override void OnInspectorGUI()
     {
@@ -47,33 +48,46 @@ public class BeatmapInspector : Editor
         {
             t.beats.Add(new ForwardBeat());
         }
-        if (GUILayout.Button("Update Scene"))
+        /*if (GUILayout.Button("Update Scene"))
         {
-        SceneView.lastActiveSceneView.Repaint();
-        }
-
+            SceneView.lastActiveSceneView.Repaint();
+        }*/
+        //BeatmapType.intValue = EditorGUILayout.IntField("BeatmapType", BeatmapType.intValue, GUILayout.ExpandWidth(false));
+        EditorGUILayout.PropertyField(BeatmapType);
         EditorGUILayout.Space();
         EditorGUILayout.Space();
 
         //Display our list to the inspector window
-        string[] selStrings = Enum.GetNames(typeof(ForwardBeatType));
+        string[] timeStrings = Enum.GetNames(typeof(BeatTimingType));
+        string[] lenStrings = Enum.GetNames(typeof(BeatLengthType));
         for (int i = 0; i < ThisBeatList.arraySize; i++)
         {
             SerializedProperty MyListRef = ThisBeatList.GetArrayElementAtIndex(i);
-            SerializedProperty type = MyListRef.FindPropertyRelative("type");
+            SerializedProperty beatTimeType = MyListRef.FindPropertyRelative("_beatTimeType");
+            SerializedProperty beatLengthType = MyListRef.FindPropertyRelative("_beatLengthType");
             SerializedProperty length = MyListRef.FindPropertyRelative("length");
             SerializedProperty beatTime = MyListRef.FindPropertyRelative("beatTime");
 
-            int selGridInt = type.intValue;
             GUILayout.BeginVertical("Box");
-            selGridInt = GUILayout.SelectionGrid(selGridInt, selStrings, 5);
+            int timeGridInt = beatTimeType.intValue;
+            timeGridInt = GUILayout.SelectionGrid(timeGridInt, timeStrings, 4);
+            beatTimeType.intValue = timeGridInt;
             GUILayout.EndVertical();
 
-            type.intValue = selGridInt;
+            GUILayout.BeginVertical("Box");
+            int lenGridInt = beatLengthType.intValue;
+            lenGridInt = GUILayout.SelectionGrid(lenGridInt, lenStrings, 3);
+            beatLengthType.intValue = lenGridInt;
+            GUILayout.EndVertical();
+            t.beats[i].UpdateValues();
             //type.intValue = EditorGUILayout.IntField("type", type.intValue, GUILayout.ExpandWidth(false));
-            length.floatValue = EditorGUILayout.FloatField("length", length.floatValue, GUILayout.ExpandWidth(false));
-            beatTime.floatValue = EditorGUILayout.FloatField("beatTime", beatTime.floatValue, GUILayout.ExpandWidth(false));
+            //length.floatValue = EditorGUILayout.FloatField("length", length.floatValue, GUILayout.ExpandWidth(false));
+            //beatTime.floatValue = EditorGUILayout.FloatField("beatTime", beatTime.floatValue, GUILayout.ExpandWidth(false));
 
+            GUILayout.BeginHorizontal("Box");
+            GUILayout.Label("Size: "+ length.floatValue);
+            GUILayout.Label("Time (play offset): "+ beatTime.floatValue);
+            GUILayout.EndHorizontal();
 
             EditorGUILayout.Space();
 
@@ -91,6 +105,7 @@ public class BeatmapInspector : Editor
             GUILayout.EndHorizontal();
             EditorGUILayout.Space();
             EditorGUILayout.Space();
+            EditorHelper.DrawUILine(Color.white);
             EditorGUILayout.Space();
             EditorGUILayout.Space();
         }
@@ -99,7 +114,7 @@ public class BeatmapInspector : Editor
         GetTarget.ApplyModifiedProperties();
     }
 
-    public void CustomOnSceneGUI(SceneView sceneView)
+    /*public void CustomOnSceneGUI(SceneView sceneView)
     {
 
 
@@ -113,23 +128,9 @@ public class BeatmapInspector : Editor
         var startPos= tr.position;
 
 
-        /*Vector3 position = t.transform.position + Vector3.up * 2f;
-        float size = 0.5f;
-        float pickSize = size * 0.5f;
-
-        if (Handles.Button(position, Quaternion.identity, size, pickSize, Handles.CapFunction.))
-            Debug.Log("The button was pressed!");*/
-
         //EditorGUI.BeginChangeCheck();
         //Vector3 pos = Handles.PositionHandle(t.lookAtPoint, Quaternion.identity);
 
-
-        /*if (EditorGUI.EndChangeCheck())
-        {
-            Undo.RecordObject(target, "Move point");
-            t.lookAtPoint = pos;
-            t.Update();
-        }*/
         float currPos = 0f;
         float lineOffset = 0f;
 
@@ -177,5 +178,5 @@ public class BeatmapInspector : Editor
             case ForwardBeatType.ObservationalHumor: return Color.white;
             default: return Color.black;
         }
-    }
+    }*/
 }
