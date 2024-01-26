@@ -3,15 +3,11 @@ using System.Linq;
 
 namespace GenericEventSystem {
     public class EventName {
-        public class Resources {
-            public static string Reserve() { return "Resources_Reserve"; }
-            public static string Add() { return "Resources_Add"; }
-            public static string Remove() { return "Resources_Remove"; }
-            public static string ResolveReserved() { return "Resources_ResolveReserved"; }
-            public static string ResolveDebt() { return "Resources_ResolveDebt"; }
-            public static string NotEnough() { return "Resources_NotEnough"; }
-            public static string Overflow() { return "Resources_Overflow"; }
-            public static List<string> Get() { return new List<string> { Reserve(), Add(), Remove(), ResolveReserved(), ResolveDebt(), NotEnough(), Overflow() }; }
+        public class Beats {
+            public static string BeatHit() { return "Resources_BeatHit"; }
+            public static string BeatRelease() { return "Resources_BeatRelease"; }
+            public static string StartBeatTrack() { return "Resources_StartBeatTrack"; }
+            public static List<string> Get() { return new List<string> { BeatHit(), BeatRelease(),StartBeatTrack() }; }
         }
 
         public class Score {
@@ -22,16 +18,18 @@ namespace GenericEventSystem {
             public static List<string> Get() { return new List<string> { ScoreIncreased(), ComboIncreased(), MaxComboReached(), Tick() }; }
         }
         public class World {
-            public static string Tick() { return "World_Tick"; }
+            public static string GameStateChange() { return "World_GameStateChanged"; }
             public static string Instantite() { return "World_Instantite"; }
-            public static List<string> Get() { return new List<string> { Tick(), Instantite() }; }
+            public static List<string> Get() { return new List<string> { GameStateChange(), Instantite() }; }
         }
         //this shows how message names can be nested for convenience into types
         public class Input {
             public class Menus {
                 public static string ShowSettings() { return "Input_Menus_ShowSettings"; }
+                public static string SelectCharacterNext() { return "Input_Menus_SelectCharacterNext"; }
+                public static string SelectCharacterPrevious() { return "Input_Menus_SelectCharacterPrevious"; }
                 public static string None() { return null; }
-                public static List<string> Get() { return new List<string> { ShowSettings(), None() }; }
+                public static List<string> Get() { return new List<string> { ShowSettings(), SelectCharacterNext(), SelectCharacterPrevious(), None() }; }
             }
             public static string PlayersReady() { return "Input_PlayersReady"; }
             //nesting can be done indefinitely but Get() function must get it's depth as well as follows:
@@ -55,7 +53,7 @@ namespace GenericEventSystem {
         }
         //This master Get() function returns all of the messages, thus enabling things like Editor extensions, i.e. the list picker/selector.
         public static List<string> Get() {
-            return new List<string> {}.Concat(Resources.Get())
+            return new List<string> {}.Concat(Beats.Get())
                 .Concat(Editor.Get())
                 .Concat(Input.Get())
                 .Concat(AI.Get())

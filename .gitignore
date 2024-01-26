@@ -1,6 +1,6 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 #
-/Assets/Scripts/GenericEventSystem/*
+#/Assets/Scripts/GenericEventSystem/*
 # this ignore for now because we are not building levels yet
 /Assets/Resources/*
 /Assets/Resources/**/*.meta

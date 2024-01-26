@@ -44,9 +44,9 @@ public class ForwardBeat
         float newLength = 0f;
         switch (_beatLengthType)
         {
-            case BeatLengthType.mini: newLength = 1f; break;
-            case BeatLengthType.medium: newLength = 2f; break;
-            case BeatLengthType.big: newLength = 5f; break;
+            case BeatLengthType.mini: newLength = 0.125f; break;
+            case BeatLengthType.medium: newLength = 0.5f; break;
+            case BeatLengthType.big: newLength = 2f; break;
             default: newLength = 0f; break;
         }
         return newLength;

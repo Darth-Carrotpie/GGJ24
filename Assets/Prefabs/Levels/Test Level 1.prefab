@@ -1,0 +1,725 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &620146938913802015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900522549522844900}
+  - component: {fileID: 3027859478910962759}
+  m_Layer: 0
+  m_Name: 'New BeatMap: SocialComementary'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1900522549522844900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620146938913802015}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5194755144896108720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3027859478910962759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620146938913802015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6c2ae968bd6f4f8f347feb09d9db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  beats:
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 2
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 6
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.25
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+--- !u!1 &4947904845076300704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5999862910367194652}
+  - component: {fileID: 6246071139370512877}
+  m_Layer: 0
+  m_Name: 'New BeatMap: SelfDeprecation'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5999862910367194652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4947904845076300704}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5194755144896108720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6246071139370512877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4947904845076300704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6c2ae968bd6f4f8f347feb09d9db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  beats:
+  - beatTime: 0.125
+    length: 5
+    isDirty: 0
+    _beatLengthType: 3
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 2
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 2
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.16666
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 1
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+--- !u!1 &7110418991519391889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6033869556254912295}
+  - component: {fileID: 718510004664725580}
+  m_Layer: 0
+  m_Name: 'New BeatMap: ObservationalHumor'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6033869556254912295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110418991519391889}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5194755144896108720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718510004664725580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110418991519391889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6c2ae968bd6f4f8f347feb09d9db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  beats:
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 0.5
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 4
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 2
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 6
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 5
+    isDirty: 0
+    _beatLengthType: 3
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.25
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+--- !u!1 &8078668951198511043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5194755144896108720}
+  - component: {fileID: 1961946096879622919}
+  m_Layer: 0
+  m_Name: Test Level 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5194755144896108720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078668951198511043}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7303841931845122885}
+  - {fileID: 1900522549522844900}
+  - {fileID: 5999862910367194652}
+  - {fileID: 6033869556254912295}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961946096879622919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078668951198511043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62dcf485dfeea8043bef6c8e74502360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 128
+  beatmaps:
+  - {fileID: 2403015843524767784}
+  - {fileID: 3027859478910962759}
+  - {fileID: 6246071139370512877}
+  - {fileID: 718510004664725580}
+--- !u!1 &9173750985547324779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7303841931845122885}
+  - component: {fileID: 2403015843524767784}
+  m_Layer: 0
+  m_Name: 'New BeatMap: EverydayLife'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7303841931845122885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173750985547324779}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5194755144896108720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2403015843524767784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173750985547324779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6c2ae968bd6f4f8f347feb09d9db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  beats:
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 5
+    isDirty: 0
+    _beatLengthType: 3
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 7
+  - beatTime: 1
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 5
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.25
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 2
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0

@@ -34,13 +34,18 @@ namespace GenericEventSystem {
         //Use an int type if you need a bool, i.e. 0 or 1 and just convert it to bool in a listener via (bool)value
         private int _intMessage;
         private bool intMessageSet;
-        public int intMessage { get { return base.GetItem(ref _intMessage, transformSet); } }
-        public GameMessage WithIntMessage(int value) => base.WithItem<int>(ref _intMessage, value, ref transformSet);
+        public int intMessage { get { return base.GetItem(ref _intMessage, intMessageSet); } }
+        public GameMessage WithIntMessage(int value) => base.WithItem<int>(ref _intMessage, value, ref intMessageSet);
 
         private float _deltaFloat;
         private bool deltaFloatSet;
         public float deltaFloat { get { return base.GetItem(ref _deltaFloat, deltaFloatSet); } }
         public GameMessage WithDeltaFloat(float value) => base.WithItem<float>(ref _deltaFloat, value, ref deltaFloatSet);
+        
+        private GameState _gameState;
+        private bool gameStateSet;
+        public GameState gameState { get { return base.GetItem(ref _gameState, gameStateSet); } }
+        public GameMessage WithNewGameState(GameState value) => base.WithItem<GameState>(ref _gameState, value, ref gameStateSet);
 
         private List<MonoBehaviour> _monoRefsList;
         private bool monoRefsListSet;
