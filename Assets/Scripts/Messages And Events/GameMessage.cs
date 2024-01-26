@@ -47,6 +47,22 @@ namespace GenericEventSystem {
         public GameState gameState { get { return base.GetItem(ref _gameState, gameStateSet); } }
         public GameMessage WithNewGameState(GameState value) => base.WithItem<GameState>(ref _gameState, value, ref gameStateSet);
 
+        private ForwardBeatType _fBeatType;
+        private bool fBeatTypeetSet;
+        public ForwardBeatType fBeatType { get { return base.GetItem(ref _fBeatType, fBeatTypeetSet); } }
+        public GameMessage WithFBeatType(ForwardBeatType value) => base.WithItem<ForwardBeatType>(ref _fBeatType, value, ref fBeatTypeetSet);
+
+        private ReverseBeatType _rBeatType;
+        private bool rBeatTypeetSet;
+        public ReverseBeatType rBeatType { get { return base.GetItem(ref _rBeatType, rBeatTypeetSet); } }
+        public GameMessage WithRBeatType(ReverseBeatType value) => base.WithItem<ReverseBeatType>(ref _rBeatType, value, ref rBeatTypeetSet);
+
+
+        private bool _pressed;
+        private bool pressedSet;
+        public bool pressed { get { return base.GetItem(ref _pressed, pressedSet); } }
+        public GameMessage WithPressed(bool value) => base.WithItem<bool>(ref _pressed, value, ref pressedSet);
+
         private List<MonoBehaviour> _monoRefsList;
         private bool monoRefsListSet;
         public List<MonoBehaviour> monoRefsList { get { return base.GetItem(ref _monoRefsList, monoRefsListSet); } }
