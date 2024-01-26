@@ -2,7 +2,7 @@ using GenericEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteInEditMode]
 public class BeatmapEditor : Singleton<BeatmapEditor>
 {
     public GameObject beatmapPrefab;
