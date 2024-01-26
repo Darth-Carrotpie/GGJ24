@@ -25,7 +25,7 @@
 /[Aa]ssets/[Mm]ownloads/*
 /[Aa]ssets/[Ss]treamingAssets/*
 # Keep folders themselves, but ignore the files and subdirs within:
-!.gitkeep
+##!.gitkeep
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
