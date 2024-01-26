@@ -4,10 +4,10 @@ using System.Linq;
 namespace GenericEventSystem {
     public class EventName {
         public class Beats {
-            public static string BeatHit() { return "Resources_BeatHit"; }
-            public static string BeatRelease() { return "Resources_BeatRelease"; }
+            public static string BeatHitInput() { return "Resources_BeatHit"; }
+            public static string BeatHitResult() { return "Resources_BeatHitResult"; }
             public static string StartBeatTrack() { return "Resources_StartBeatTrack"; }
-            public static List<string> Get() { return new List<string> { BeatHit(), BeatRelease(),StartBeatTrack() }; }
+            public static List<string> Get() { return new List<string> { BeatHitInput(), BeatHitResult(),StartBeatTrack() }; }
         }
 
         public class Score {

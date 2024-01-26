@@ -21,6 +21,8 @@ public class Beatmap : MonoBehaviour
 
     private void OnValidate()
     {
+        if (BeatmapEditor.Instance == null)
+            return;
         for (int i = 0; i < beats.Count; i++)
         {
             beats[i].UpdateValues();
