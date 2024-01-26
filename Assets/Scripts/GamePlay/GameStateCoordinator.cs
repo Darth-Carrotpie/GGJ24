@@ -13,6 +13,14 @@ public class GameStateCoordinator : Singleton<GameStateCoordinator>
     {
         return Instance.state;
     }
+    public static GameState SetNextState()
+    {
+        if (Instance.state != GameState.PostLevelWin && Instance.state != GameState.PostLevelLose)
+            Instance.state++;
+        else Instance.state = GameState.IntroScene;
+
+        return Instance.state;
+    }
     public static bool HasRunStarted()
     {
         if(Instance.state == GameState.ForwardBeatRun || Instance.state == GameState.ReverseBeatRun)

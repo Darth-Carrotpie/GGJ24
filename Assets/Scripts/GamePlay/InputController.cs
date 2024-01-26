@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputController : MonoBehaviour
+public class InputController : Singleton<InputController>
 {
 
     public List<KeyCode> keysForReverse = new List<KeyCode>();
 
-    KeyCode firstRandKey = KeyCode.None;
-    KeyCode secondRandKey = KeyCode.None;
-    KeyCode thirdRandKey = KeyCode.None;
-    KeyCode fourthRandKey = KeyCode.None;
+    public KeyCode firstRandKey = KeyCode.None;
+    public KeyCode secondRandKey = KeyCode.None;
+    public KeyCode thirdRandKey = KeyCode.None;
+    public KeyCode fourthRandKey = KeyCode.None;
 
     void Start()
     {
