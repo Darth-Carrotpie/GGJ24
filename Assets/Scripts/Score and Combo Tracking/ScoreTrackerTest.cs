@@ -24,9 +24,9 @@ public class ScoreTrackerTest : MonoBehaviour
 
     private void Start()
     {
-        EventCoordinator.StartListening(EventName.World.ScoreIncreased(), OnScoreIncreased);
+        EventCoordinator.StartListening(EventName.Score.ScoreIncreased(), OnScoreIncreased);
     }
 
-    void OnScoreIncreased(GameMessage msg) { Debug.Log(msg.intMessage.ToString()); }
+    void OnScoreIncreased(GameMessage msg) { Debug.Log("Got MSG> OnScoreIncreased by: " + msg.intMessage.ToString()); }
 
 }

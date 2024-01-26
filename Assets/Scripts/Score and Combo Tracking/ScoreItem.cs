@@ -3,6 +3,7 @@ public class ScoreItem
 {
     public int score;
     public float deviation;
+    public int currentCombo;
     public ScoreItemType scoreItemType;
 
     public string ToString()

@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da383a5c8973284a85a838844c97b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentComboTest: 0
+  maxComboReachedTest: 0
 --- !u!1 &958950288
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840466550}
+  - component: {fileID: 1840466551}
   m_Layer: 0
   m_Name: ComboTracker
   m_TagString: Untagged
@@ -459,6 +462,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840466551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840466549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f7f85fc027e334d9908efb72d48565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  _combo: 0
+  _maxCombo: 12
+  comboReached: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

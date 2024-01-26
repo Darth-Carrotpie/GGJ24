@@ -14,15 +14,17 @@ namespace GenericEventSystem {
             public static List<string> Get() { return new List<string> { Reserve(), Add(), Remove(), ResolveReserved(), ResolveDebt(), NotEnough(), Overflow() }; }
         }
 
-        public class Node {
-            public static string AssignUnit() { return "Node_AssignUnit"; }
+        public class Score {
+            public static string ScoreIncreased() { return "World_ScoreIncreased"; }
+            public static string ComboIncreased() { return "World_ComboIncreased"; }
+            public static string MaxComboReached() { return "World_MaxComboReached"; }
             public static string Tick() { return "Network_PlayerLeft"; }
-            public static List<string> Get() { return new List<string> { AssignUnit(), Tick() }; }
+            public static List<string> Get() { return new List<string> { ScoreIncreased(), ComboIncreased(), MaxComboReached(), Tick() }; }
         }
         public class World {
             public static string Tick() { return "World_Tick"; }
-            public static string ScoreIncreased() { return "World_ScoreIncreased"; }
-            public static List<string> Get() { return new List<string> { Tick(), ScoreIncreased() }; }
+            public static string Instantite() { return "World_Instantite"; }
+            public static List<string> Get() { return new List<string> { Tick(), Instantite() }; }
         }
         //this shows how message names can be nested for convenience into types
         public class Input {
@@ -37,7 +39,7 @@ namespace GenericEventSystem {
                 return new List<string> {
                         PlayersReady(),
                     }.Concat(Menus.Get())
-                    .Concat(Node.Get())
+                    .Concat(Score.Get())
                     .Concat(World.Get())
                     .ToList();
             }

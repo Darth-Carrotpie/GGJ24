@@ -21,21 +21,20 @@ public class ScoreTracker : Singleton<ScoreTracker>
     public static void AddScore(float deviation)
     {
         ScoreItem newScoreItem = new ScoreItem();
-        newScoreItem.scoreItemType = Instance.GetTypeFromDeviation(deviation);
-        newScoreItem.score = Instance.GetDefaultValue(newScoreItem.scoreItemType);
-        Instance.scoreItems.Add(newScoreItem);
-        Instance.totalScore += newScoreItem.score;
-        EventCoordinator.TriggerEvent(EventName.World.ScoreIncreased(), GameMessage.Write().WithIntMessage(newScoreItem.score));
+        ScoreItemType type = Instance.GetTypeFromDeviation(deviation);
+        newScoreItem.scoreItemType = type;
+        newScoreItem.deviation = deviation;
+        AddScore(newScoreItem);
     }
 
-    public static void AddScore(ScoreItemType type)
+    public static void AddScore(ScoreItem newScoreItem)
     {
-        ScoreItem newScoreItem = new ScoreItem();
-        newScoreItem.scoreItemType = type;
-        newScoreItem.score = Instance.GetDefaultValue(type);
+        newScoreItem.score = Instance.GetDefaultValue(newScoreItem.scoreItemType);
+        newScoreItem.currentCombo = ComboTracker.GetCombo();
+        Instance.totalScore += newScoreItem.score * newScoreItem.currentCombo;
         Instance.scoreItems.Add(newScoreItem);
-        Instance.totalScore += newScoreItem.score;
-        EventCoordinator.TriggerEvent(EventName.World.ScoreIncreased(), GameMessage.Write().WithIntMessage(newScoreItem.score));
+        EventCoordinator.TriggerEvent(EventName.Score.ScoreIncreased(), GameMessage.Write().WithIntMessage(newScoreItem.score));
+        Instance.IncreaseCombo(newScoreItem.scoreItemType);
     }
     public static ScoreItem GetLastScore()
     {
@@ -55,7 +54,7 @@ public class ScoreTracker : Singleton<ScoreTracker>
         float output = 0f;
         for (int i = 0; i < Instance.scoreItems.Count; i++)
         {
-            output += Instance.scoreItems[i].score;
+            output += Instance.scoreItems[i].score * Instance.scoreItems[i].currentCombo;
         }
         return output;
     }
@@ -105,5 +104,15 @@ public class ScoreTracker : Singleton<ScoreTracker>
 
         }
         return ScoreItemType.Botch;
+    }
+    void IncreaseCombo(ScoreItemType type)
+    {
+        switch (type)
+        {
+            case ScoreItemType.Botch: ComboTracker.ResetCombo(); break;
+            //case ScoreItemType.DadJoke: ComboTracker.ResetCombo(); break;
+            case ScoreItemType.Perfect: ComboTracker.IncreaseCombo(); break;
+            case ScoreItemType.Almost: ComboTracker.IncreaseCombo();break;
+        }
     }
 }
