@@ -57,6 +57,10 @@ namespace GenericEventSystem {
         public ReverseBeatType rBeatType { get { return base.GetItem(ref _rBeatType, rBeatTypeetSet); } }
         public GameMessage WithRBeatType(ReverseBeatType value) => base.WithItem<ReverseBeatType>(ref _rBeatType, value, ref rBeatTypeetSet);
 
+        private ScoreItem _scoreItem;
+        private bool scoreItemSet;
+        public ScoreItem scoreItem { get { return base.GetItem(ref _scoreItem, scoreItemSet); } }
+        public GameMessage WithScoreItem(ScoreItem value) => base.WithItem<ScoreItem>(ref _scoreItem, value, ref scoreItemSet);
 
         private bool _pressed;
         private bool pressedSet;

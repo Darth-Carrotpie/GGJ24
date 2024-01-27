@@ -6,7 +6,7 @@ using UnityEngine;
 public class BeatTrackInstantiator : MonoBehaviour
 {
 
-    public float delay = 3f;
+    float delay = 0.5f;
     float timer;
     BeatLevel level;
 
@@ -45,10 +45,25 @@ public class BeatTrackInstantiator : MonoBehaviour
         }
         else
         {
-            CreateBeatTrack(level.beatmaps[0], targetFirst);
-            CreateBeatTrack(level.beatmaps[1], targetSecond);
-            CreateBeatTrack(level.beatmaps[2], targetThird);
-            CreateBeatTrack(level.beatmaps[3], targetFourth);
+            foreach(Beatmap map in level.beatmaps)
+            {
+                if(map.type == ForwardBeatType.EverydayLife)
+                {
+                    CreateBeatTrack(map, targetFirst);
+                }
+                if (map.type == ForwardBeatType.SelfDeprecation)
+                {
+                    CreateBeatTrack(map, targetSecond);
+                }
+                if (map.type == ForwardBeatType.SocialComementary)
+                {
+                    CreateBeatTrack(map, targetThird);
+                }
+                if (map.type == ForwardBeatType.ObservationalHumor)
+                {
+                    CreateBeatTrack(map, targetFourth);
+                }
+            }
             GetComponent<EndForwardBeatRunChecker>().enabled = true;
             this.enabled = false;
             timer = 0;
@@ -59,6 +74,7 @@ public class BeatTrackInstantiator : MonoBehaviour
     {
         GameObject newBeatTrack = new GameObject();
         BeatTrack bt = newBeatTrack.AddComponent<BeatTrack>();
+        BeatHitChecker checker = target.GetComponent<BeatHitChecker>();
         bt.transform.parent = transform;
         bt.transform.position = Vector3.zero;
         bt.beatmap = map;
@@ -66,5 +82,6 @@ public class BeatTrackInstantiator : MonoBehaviour
         bt.beatHitPrefab = beatHitPrefab;
         newBeatTrack.name = "NewBeatTrack:"+map.type;
         targetFirst = target;
+        checker.beatType = map.type;
     }
 }

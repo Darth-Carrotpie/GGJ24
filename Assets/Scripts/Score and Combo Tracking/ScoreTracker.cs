@@ -33,7 +33,7 @@ public class ScoreTracker : Singleton<ScoreTracker>
         newScoreItem.currentCombo = ComboTracker.GetCombo();
         Instance.totalScore += newScoreItem.score * newScoreItem.currentCombo;
         Instance.scoreItems.Add(newScoreItem);
-        EventCoordinator.TriggerEvent(EventName.Score.ScoreIncreased(), GameMessage.Write().WithIntMessage(newScoreItem.score));
+        EventCoordinator.TriggerEvent(EventName.Score.ScoreIncreased(), GameMessage.Write().WithScoreItem(newScoreItem));
         Instance.IncreaseCombo(newScoreItem.scoreItemType);
     }
     public static ScoreItem GetLastScore()

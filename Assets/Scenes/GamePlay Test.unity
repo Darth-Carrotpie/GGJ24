@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472855cd9ac72f49aed11b8f3f90e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: []
+  beatType: 3
 --- !u!1 &318760244
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ca969d0e10fc040982429c32fedc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
   targetFirst: {fileID: 1714307108}
   targetSecond: {fileID: 293486100}
   targetThird: {fileID: 1760369229}
@@ -751,6 +750,7 @@ Transform:
   - {fileID: 654323603}
   - {fileID: 1804580606}
   - {fileID: 713216350}
+  - {fileID: 1974957732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962367395
@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 962367396}
   - component: {fileID: 962367398}
   - component: {fileID: 962367397}
+  - component: {fileID: 962367399}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -810,7 +811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Combo:'
+  m_text: 'Combo: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -887,6 +888,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962367395}
   m_CullTransparentMesh: 1
+--- !u!114 &962367399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962367395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13323676a869dff40bdf1c106ccbaee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1550173607
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472855cd9ac72f49aed11b8f3f90e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: []
+  beatType: 4
 --- !u!1 &1655295172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472855cd9ac72f49aed11b8f3f90e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: []
+  beatType: 1
 --- !u!1 &1760369229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a472855cd9ac72f49aed11b8f3f90e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: []
+  beatType: 2
 --- !u!1 &1776433342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1090,7 @@ GameObject:
   - component: {fileID: 1776433343}
   - component: {fileID: 1776433345}
   - component: {fileID: 1776433344}
+  - component: {fileID: 1776433346}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1123,7 +1137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1200,6 +1214,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776433342}
   m_CullTransparentMesh: 1
+--- !u!114 &1776433346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776433342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6365a151c852444448806acccd9f32a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1780946162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,6 +1462,77 @@ MonoBehaviour:
   selectedLevel: {fileID: 0}
   selectedCharacter: {fileID: 0}
   currentSelection: 0
+--- !u!1 &1974957731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974957732}
+  - component: {fileID: 1974957734}
+  - component: {fileID: 1974957733}
+  m_Layer: 0
+  m_Name: Score Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1974957732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974957731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 951183030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974957733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974957731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f7f85fc027e334d9908efb72d48565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  _combo: 0
+  _maxCombo: 12
+  comboReached: 0
+--- !u!114 &1974957734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974957731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824745ca389b2ec4489f2c2dddc15efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  PefectDefaultValue: 10
+  AlmostDefaultValue: 5
+  DadJokeDefaultValue: 2
+  BotchDefaultValue: 0
+  PefectAllowedDeviation: 0.05
+  AlmostAllowedDeviation: 0.1
+  DadJokeAllowedDeviation: 0.02
+  scoreItems: []
+  totalScore: 0
 --- !u!1001 &7890323299514105899
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class BeatHit : MonoBehaviour
     public float flyTime;
     public float distanceToTarget;
     public GameObject target;
-    public float overFlyTime = 0.5f;
+    public float overFlyTime = 0.25f;
 
     public float flyProgress;
     Vector3 startPos;
@@ -19,23 +19,26 @@ public class BeatHit : MonoBehaviour
     {
         distanceToTarget = (target.transform.position - transform.position).magnitude;
         flySpeed = distanceToTarget / flyTime;
-        Debug.Log("beat hit created: " + fBeat);
-        Debug.Log("flyTime: " + flyTime);
-        Debug.Log("flySpeed: " + flyTime);
     }
 
     void Update()
     {
         flyProgress += Time.deltaTime / flyTime;
         transform.position = Vector3.LerpUnclamped(startPos, target.transform.position, flyProgress);
-        if (flyProgress > 1f+0.1f)
+        if (flyProgress > 1f)
         {
-            target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
-            SpawnDestructionFx();
-            Destroy(gameObject);
+            flyProgress += Time.deltaTime / flyTime;
+            if(flyProgress > 1f + +overFlyTime)
+            {
+                target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
+                Destroy(gameObject);
+            }
         }
     }
-
+    private void OnDestroy()
+    {
+        SpawnDestructionFx();
+    }
     public void SpawnDestructionFx()
     {
 

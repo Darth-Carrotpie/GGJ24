@@ -13,7 +13,7 @@ public class EndForwardBeatRunChecker : MonoBehaviour
     }
     void Update()
     {
-        if (!CheckIfTracksActive() && GameStateCoordinator.GetState() == GameState.ForwardBeatRun)
+        if (!CheckIfTracksActive() && GameStateCoordinator.GetState() == GameState.PostLevelWin)
         {
             EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.ReverseBeatRun));
             this.enabled = false;
