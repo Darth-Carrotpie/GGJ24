@@ -8,35 +8,59 @@ public class BeatTrack : MonoBehaviour
     public GameObject target;
     public Beatmap beatmap;
     public ForwardBeatType beatType;
-    public float distanceToTarget;
 
     public GameObject beatHitPrefab;
-    public List<ForwardBeat> beatQueue;
+    public Queue<ForwardBeat> beatQueue;
+
+    public float flyTime = 4f;
 
 
     float counterNext = 0;
-    float timeInitTrack = 0;
+
+    ForwardBeat nextBeat;
 
     void Start()
     {
         beatType = beatmap.type;
-        timeInitTrack = Time.time;
-        beatQueue = new List<ForwardBeat>(beatmap.beats);
+        beatQueue = new Queue<ForwardBeat>(beatmap.beats);
+        Debug.Log("beat track created: " + beatType);
     }
 
     void Update()
     {
-        distanceToTarget = (target.transform.position - transform.position).magnitude;
-        ForwardBeat nextBeat = beatQueue[0];
-        if(nextBeat.beatLengthType == BeatLengthType.pause)
+        counterNext -= Time.deltaTime;
+        if (counterNext < 0)
         {
-
-        } else
-        {
-
+            if (CheckBeatmapEnd()) return;
+            GetNextBeat();
+            if (nextBeat.beatLengthType != BeatLengthType.pause)
+            {
+                SpawnBeatHit(nextBeat);
+            }
         }
     }
 
+    bool CheckBeatmapEnd()
+    {
+        if(beatQueue.Count == 0)
+        {
+            gameObject.SetActive(false);
+            return true;
+        }
+        return false;
+    }
+
+    ForwardBeat GetNextBeat()
+    {
+
+        nextBeat = beatQueue.Dequeue();
+        if (nextBeat.beatLengthType == BeatLengthType.pause)
+            counterNext = nextBeat.beatTime;
+        else
+            counterNext = nextBeat.length;
+
+        return nextBeat;
+    }
 
     void SpawnBeatHit(ForwardBeat fBeat)
     {
@@ -44,6 +68,8 @@ public class BeatTrack : MonoBehaviour
         newBeatHitObj.transform.position = transform.position;
         BeatHit beatHit = newBeatHitObj.GetComponent<BeatHit>();
         beatHit.fBeat = fBeat;
+        beatHit.flyTime = flyTime;
+        beatHit.target = target;
         target.GetComponent<BeatHitChecker>().AddBeatHit(beatHit);
     }
 }

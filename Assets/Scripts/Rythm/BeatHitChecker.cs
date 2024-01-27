@@ -1,3 +1,4 @@
+using GenericEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,13 @@ public class BeatHitChecker : MonoBehaviour
 
     void Start()
     {
-        
+        EventCoordinator.StartListening(EventName.Beats.BeatHitInput(), OnBeatHitIniput);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnBeatHitIniput(GameMessage msg)
     {
-        
+        //GameMessage.Write().WithFBeatType(ForwardBeatType.EverydayLife).WithPressed(true));
     }
 
     public void AddBeatHit(BeatHit beat)

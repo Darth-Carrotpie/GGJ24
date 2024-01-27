@@ -17,6 +17,8 @@ public class BeatTrackInstantiator : MonoBehaviour
 
     public GameObject beatHitPrefab;
 
+    bool doStart = false;
+
     void Start()
     {
         EventCoordinator.StartListening(EventName.World.GameStateChange(), OnGameStateChanged);
@@ -27,11 +29,16 @@ public class BeatTrackInstantiator : MonoBehaviour
         if(msg.gameState == GameState.ForwardBeatRun)
         {
             level = LevelSelector.Instance.selectedLevel;
+            doStart = true;
         }
     }
 
     private void Update()
     {
+        if (!doStart)
+        {
+            return;
+        }
         if(timer <= delay)
         {
             timer += Time.deltaTime;
@@ -42,6 +49,7 @@ public class BeatTrackInstantiator : MonoBehaviour
             CreateBeatTrack(level.beatmaps[1], targetSecond);
             CreateBeatTrack(level.beatmaps[2], targetThird);
             CreateBeatTrack(level.beatmaps[3], targetFourth);
+            GetComponent<EndForwardBeatRunChecker>().enabled = true;
             this.enabled = false;
             timer = 0;
         }
