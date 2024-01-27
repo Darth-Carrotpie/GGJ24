@@ -14,34 +14,38 @@ public class AudioTestInput : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        HandleKeyInput(KeyCode.Q, "mini", ForwardBeatType.SocialComementary);
-        HandleKeyInput(KeyCode.W, "mini", ForwardBeatType.ObservationalHumor);
-        HandleKeyInput(KeyCode.E, "mini", ForwardBeatType.EverydayLife);
-        HandleKeyInput(KeyCode.R, "mini", ForwardBeatType.SelfDeprecation);
+        HandleKeyInput(KeyCode.Q, BeatLengthType.mini, ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.W, BeatLengthType.mini, ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.E, BeatLengthType.mini, ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.R, BeatLengthType.mini, ForwardBeatType.SelfDeprecation);
 
-        HandleKeyInput(KeyCode.A, "medium", ForwardBeatType.SocialComementary);
-        HandleKeyInput(KeyCode.S, "medium", ForwardBeatType.ObservationalHumor);
-        HandleKeyInput(KeyCode.D, "medium", ForwardBeatType.EverydayLife);
-        HandleKeyInput(KeyCode.F, "medium", ForwardBeatType.SelfDeprecation);
+        HandleKeyInput(KeyCode.A, BeatLengthType.medium, ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.S, BeatLengthType.medium, ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.D, BeatLengthType.medium, ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.F, BeatLengthType.medium, ForwardBeatType.SelfDeprecation);
 
-        HandleKeyInput(KeyCode.Z, "long", ForwardBeatType.SocialComementary);
-        HandleKeyInput(KeyCode.X, "long", ForwardBeatType.ObservationalHumor);
-        HandleKeyInput(KeyCode.C, "long", ForwardBeatType.EverydayLife);
-        HandleKeyInput(KeyCode.V, "long", ForwardBeatType.SelfDeprecation);
+        HandleKeyInput(KeyCode.Z, BeatLengthType.big, ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.X, BeatLengthType.big, ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.C, BeatLengthType.big, ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.V, BeatLengthType.big, ForwardBeatType.SelfDeprecation);
     }
     
     
-    private static void HandleKeyInput(KeyCode keyCode, string length, ForwardBeatType beatType)
+    private static void HandleKeyInput(KeyCode keyCode, BeatLengthType beatLength, ForwardBeatType beatType)
     {
         if (Input.GetKeyDown(keyCode))
         {
-            TriggerBeatEvent(length, beatType);
+            TriggerBeatEvent(beatLength, beatType);
         }
     }
 
-    private static void TriggerBeatEvent(string length, ForwardBeatType beatType)
+    private static void TriggerBeatEvent(BeatLengthType beatLength, ForwardBeatType beatType)
     {
-        EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(),
-            GameMessage.Write().WithStringMessage(length).WithFBeatType(beatType));
+        var beat = new ForwardBeat
+        {
+            beatLengthType = beatLength
+        };
+        EventCoordinator.TriggerEvent(EventName.Beats.BeatCreated(),
+            GameMessage.Write().WithFBeat(beat).WithFBeatType(beatType));
     }
 }

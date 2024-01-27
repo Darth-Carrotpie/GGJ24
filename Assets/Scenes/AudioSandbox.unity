@@ -391,6 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterFolderName: Hanna
+  pitch: 1.5
   airySource: {fileID: 2098413213}
   openSource: {fileID: 2098413217}
   closedSource: {fileID: 2098413216}
