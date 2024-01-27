@@ -138,7 +138,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VeryNotFunny
+  m_Name: Funny
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 822a864852c95be4799f5ce17526a94c
   m_Children: []
@@ -195,7 +195,7 @@ AudioMixerController:
     - 1613ba3e40446854299199b1091ddc1b
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: -4117455988471784579}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
