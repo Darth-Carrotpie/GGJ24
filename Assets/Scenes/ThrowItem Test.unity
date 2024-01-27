@@ -571,14 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a56fa3677064a45abb689f32f0a919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwItemPrefabs:
-  - {fileID: 6621431545702693856, guid: b9b131df90a3749b89ba2e389f849267, type: 3}
-  - {fileID: 6621431545702693856, guid: 547ed77dc31ee41ba97d2cee9dc3573a, type: 3}
-  - {fileID: 6621431545702693856, guid: 0f38f1dddf686426a90164f6fb830e67, type: 3}
-  - {fileID: 6621431545702693856, guid: 67b9de8eb8be54e82809279de9f9550a, type: 3}
-  prepDuration: 1
-  throwDelay: 0.5
-  throwDuration: 0.5
+  itemPrefabSet: {fileID: 11400000, guid: 1f4fb28c02589472dba0a1eeaa2440d3, type: 2}
 --- !u!4 &1076813984
 Transform:
   m_ObjectHideFlags: 0

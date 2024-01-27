@@ -1,42 +1,70 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using GenericEventSystem;
-using Unity;
 using UnityEngine;
 
 public class ThrowManager : MonoBehaviour
 {
-    public List<Transform> throwItemPrefabs;
-    public float prepDuration = 1.5f;
-    public float throwDelay = 1.0f;
-    public float throwDuration = 2.0f;
-
+    public ItemSet itemPrefabSet;
+    static float prepDuration = 1.2f;
+    static float throwDuration = 1.0f;
+    static float throwDelay = 1.0f;
     Thrower thrower;
     ThrowTarget throwTarget;
+    float hate = 0.0f;
+    int currentCrowdState = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        EventCoordinator.StartListening(EventName.Item.Throw(), Throw);
+        EventCoordinator.StartListening(EventName.Item.Throw(), OnThrow);
+        EventCoordinator.StartListening(EventName.World.CrowdStateChange(), OnCrowdStateChanged);
 
         thrower = FindObjectOfType<Thrower>();
         throwTarget = FindObjectOfType<ThrowTarget>();
-
-        // TODO: remove
-        StartCoroutine(ThrowLoop());
     }
 
-    void Throw(GameMessage msg)
+    float HateNeededToThrow()
+    {
+        switch (currentCrowdState)
+        {
+            case 2:
+                return 30.0f;
+            case 3:
+                return 10.0f;
+            case 4:
+                return 3.0f;
+            default:
+                return float.PositiveInfinity;
+        }
+    }
+
+    void Update()
+    {
+        hate += Time.deltaTime;
+        if (hate > HateNeededToThrow())
+        {
+            EventCoordinator.TriggerEvent(EventName.Item.Throw(), new GameMessage());
+            hate = 0;
+        }
+    }
+
+    void OnThrow(GameMessage msg)
     {
         StartCoroutine(ThrowAnimation());
+    }
+
+    void OnCrowdStateChanged(GameMessage msg)
+    {
+        currentCrowdState = msg.intMessage;
     }
 
     IEnumerator ThrowAnimation()
     {
         float startTime = Time.time;
 
-        var itemPrefab = throwItemPrefabs[Random.Range(0, throwItemPrefabs.Count)];
-        var itemInstance = Instantiate(itemPrefab, thrower.transform.position, Quaternion.identity, transform);
+        var typeAndItem = itemPrefabSet.throwItemPrefabs.ElementAt(Random.Range(0, itemPrefabSet.throwItemPrefabs.Length));
+        var itemInstance = Instantiate(typeAndItem.prefab, thrower.transform.position, Quaternion.identity, transform);
         // Detach from thrower if the crowd moves?
         var throwPosition = thrower.transform.position;
 
@@ -55,21 +83,11 @@ public class ThrowManager : MonoBehaviour
                 // Show one last frame
                 yield return null;
 
-                EventCoordinator.TriggerEvent(EventName.Item.CheckHit(), new GameMessage());
+                EventCoordinator.TriggerEvent(EventName.Item.CheckHit(), new GameMessage().WithRBeatType(typeAndItem.type));
                 Destroy(itemInstance.gameObject);
                 break;
             }
             yield return null;
         }
-
-    }
-
-    // TODO: remove
-    IEnumerator ThrowLoop()
-    {
-        yield return new WaitForSeconds(4);
-
-        Throw(new GameMessage());
-        StartCoroutine(ThrowLoop());
     }
 }
