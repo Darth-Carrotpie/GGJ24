@@ -1,13 +1,13 @@
 using GenericEventSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Audio
 {
     public class CharacterSoundSpawner : MonoBehaviour
     {
-        [FormerlySerializedAs("characterName")] public string characterFolderName;
+        public string characterFolderName;
+        public float pitch = 1.5f;
         public AudioSource airySource;
         public AudioSource openSource;
         public AudioSource closedSource;
@@ -17,14 +17,13 @@ namespace Audio
         // Start is called before the first frame update
         private void Start()
         {
-            const float pitch = 1.5f;
             airySource.pitch = pitch;
             openSource.pitch = pitch;
             closedSource.pitch = pitch;
             sharpSource.pitch = pitch;
             
             // Listen to event
-            EventCoordinator.StartListening(EventName.Beats.BeatHitResult(), OnBeatHit);
+            EventCoordinator.StartListening(EventName.Beats.BeatCreated(), OnBeatHit);
 
             // Load AudioClips
             string[] categories = { "Mini", "Medium", "Long" };
@@ -55,29 +54,23 @@ namespace Audio
         
         }
 
-        // Before everything is created
-        private void Awake()
-        {
-        
-        }
-
         private void OnBeatHit(GameMessage msg)
         {
             var typeSection = GetTypeToPlay(msg.fBeatType);
-            var lengthSection = GetLengthSection(msg.strMessage);
+            var lengthSection = GetLengthSection(msg.fBeat.beatLengthType);
             var sourceToPlay = GetSourceToPlay(msg.fBeatType);
 
             sourceToPlay.clip = clips[lengthSection][typeSection][Random.Range(0, 4)];
             sourceToPlay.Play();
         }
         
-        private static int GetLengthSection(string length)
+        private static int GetLengthSection(BeatLengthType length)
         {
-            return length.ToLower() switch
+            return length switch
             {
-                "mini" => 0,
-                "medium" => 1,
-                "long" => 2,
+                BeatLengthType.mini => 0,
+                BeatLengthType.medium => 1,
+                BeatLengthType.big => 2,
                 _ => 0, // Default to mini
             };
         }

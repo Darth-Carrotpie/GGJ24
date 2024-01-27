@@ -103,35 +103,35 @@ public class InputController : Singleton<InputController>
     {
         if (Input.GetKeyDown(firstRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(true));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(true));
         }
         if (Input.GetKeyDown(secondRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(true));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(true));
         }
         if (Input.GetKeyDown(thirdRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(true));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(true));
         }
         if (Input.GetKeyDown(fourthRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(true));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(true));
         }
         if (Input.GetKeyUp(firstRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(false));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(false));
         }
         if (Input.GetKeyUp(secondRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(false));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(false));
         }
         if (Input.GetKeyUp(thirdRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(false));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(false));
         }
         if (Input.GetKeyUp(fourthRandKey))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(false));
+            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(false));
         }
     }
     void RunInputsPostGame()
