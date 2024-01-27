@@ -6,7 +6,7 @@ public class LaughBooController : MonoBehaviour
 {
     //public static LaughBooController instance;
 
-    enum LaughBooLevel { VeryFunny = 0, Funny = 1, Boring = 2, NotFunny = 3, VeryNotFunny = 4 };
+    enum LaughBooLevel { VeryFunny = 0, Funny = 1, Boring = 2, NotFunny = 3, VeryNotFunny = 4, Silent = 5 };
     LaughBooLevel laughBooLevel;
 
     [SerializeField] AudioSource[] mainAudioSourceArray;
@@ -21,14 +21,14 @@ public class LaughBooController : MonoBehaviour
 
     [SerializeField] AudioMixerGroup master;
     [SerializeField] float timeToTransition = 0.5f;
-    int crowdReactionValue;
+    int crowdReactionValue = 10;
 
     private void Awake()
     {
         for (int i = 0; i < mainAudioSourceArray.Length; i++)
         {
             mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
-            mainAudioSourceArray[i].playOnAwake = true;
+            //mainAudioSourceArray[i].Stop();
         }
     }
 
@@ -46,11 +46,11 @@ public class LaughBooController : MonoBehaviour
             isTrackPlayingArray[i] = false;
         }
 
-        weights[2] = 1f;
+        weights[5] = 1f;
         audioMixer.TransitionToSnapshots(snapshots, weights, 0);
 
         //snapshots[2].TransitionTo(timeToTransition);
-        crowdReactionValue = (int)LaughBooLevel.Boring;
+        //crowdReactionValue = (int)LaughBooLevel.Boring;
 
         //audioMixer.SetFloat("MasterVolume", Mathf.Log10(1) * 20);
     }
@@ -93,6 +93,7 @@ public class LaughBooController : MonoBehaviour
             weights[4] = 1f;
             audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
         }
+        
     }
 
     //For Testing
