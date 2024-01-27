@@ -37,7 +37,7 @@ public class BeatHitChecker : MonoBehaviour
                 EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(), GameMessage.Write().WithFBeatType(beatType).WithPressed(false).WithDeltaFloat(deviation));
                 deviation = 0f;
             }*/
-            ScoreTracker.AddScore(deviation);
+            ScoreTracker.AddScore(deviation, beatType);
         }
         //GameMessage.Write().WithFBeatType(ForwardBeatType.EverydayLife).WithPressed(true));
     }
@@ -47,7 +47,7 @@ public class BeatHitChecker : MonoBehaviour
         hit = hits.Dequeue();
         hit.enabled = false;
         Destroy(hit.gameObject);
-        return (hit.transform.position - transform.position).magnitude;
+        return (hit.transform.position - transform.position).magnitude / 10f;
     }
     float GetBeatEndDistance()
     {

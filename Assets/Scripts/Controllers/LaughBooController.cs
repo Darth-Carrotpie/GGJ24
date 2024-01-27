@@ -96,7 +96,7 @@ public class LaughBooController : MonoBehaviour
     }
 
     //For Testing
-    void Update()
+    /*void Update()
     {
 
         if (laughBooSlider > 0.8f)
@@ -150,7 +150,7 @@ public class LaughBooController : MonoBehaviour
             weights[4] = 1f;
             audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
         }
-    }
+    }*/
 
     void ResetWeightsAndBools()
     {
