@@ -27,7 +27,8 @@ namespace GenericEventSystem {
         public class World {
             public static string GameStateChange() { return "World_GameStateChanged"; }
             public static string Instantite() { return "World_Instantite"; }
-            public static List<string> Get() { return new List<string> { GameStateChange(), Instantite() }; }
+            public static string CrowdStateChange() {return "World_CrowdStateChanged"; }
+            public static List<string> Get() { return new List<string> { GameStateChange(), Instantite(), CrowdStateChange() }; }
         }
         //this shows how message names can be nested for convenience into types
         public class Input {

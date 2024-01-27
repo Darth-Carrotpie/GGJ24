@@ -751,6 +751,7 @@ Transform:
   - {fileID: 1804580606}
   - {fileID: 713216350}
   - {fileID: 1974957732}
+  - {fileID: 1671167106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962367395
@@ -989,6 +990,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671167105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671167106}
+  - component: {fileID: 1671167107}
+  m_Layer: 0
+  m_Name: CrowdReactionController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1671167106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671167105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 951183030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671167107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671167105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb901a9a8f4d1740907b959a800b6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  performance: 0
+  currBeatWeigth: 0.2
+  comboIncrease: 0.05
+  avgCount: 5
+  performaceForReactionLevels:
+  - 40
+  - 30
+  - 20
+  - 10
+  - 0
 --- !u!1 &1714307108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1585,7 @@ MonoBehaviour:
   BotchDefaultValue: 0
   PefectAllowedDeviation: 0.05
   AlmostAllowedDeviation: 0.1
-  DadJokeAllowedDeviation: 0.02
+  DadJokeAllowedDeviation: 0.2
   scoreItems: []
   totalScore: 0
 --- !u!1001 &7890323299514105899

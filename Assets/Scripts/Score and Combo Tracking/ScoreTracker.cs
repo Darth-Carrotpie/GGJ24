@@ -44,6 +44,18 @@ public class ScoreTracker : Singleton<ScoreTracker>
     {
         return Instance.scoreItems[indexAt];
     }
+    public static int GetLastItemsAvarage(int _count){
+        int avg = -1;
+        int count = _count;
+        if(count > Instance.scoreItems.Count){
+            count = Instance.scoreItems.Count;
+        }
+        for(int i = Instance.scoreItems.Count-count; i < Instance.scoreItems.Count; i++){
+            avg += (int)Instance.scoreItems[i].scoreItemType;
+        }
+        avg /= count;
+        return avg;
+    }
 
     public static void ClearScores()
     {
