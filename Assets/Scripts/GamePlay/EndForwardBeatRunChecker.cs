@@ -13,9 +13,9 @@ public class EndForwardBeatRunChecker : MonoBehaviour
     }
     void Update()
     {
-        if (!CheckIfTracksActive() && GameStateCoordinator.GetState() == GameState.PostLevelWin)
+        if (!CheckIfTracksActive() && GameStateCoordinator.GetState() == GameState.BeatRun)
         {
-            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.ReverseBeatRun));
+            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.PostLevelWin));
             this.enabled = false;
         }
     }

@@ -23,7 +23,7 @@ public class GameStateCoordinator : Singleton<GameStateCoordinator>
     }
     public static bool HasRunStarted()
     {
-        if(Instance.state == GameState.ForwardBeatRun || Instance.state == GameState.ReverseBeatRun)
+        if(Instance.state == GameState.BeatRun || Instance.state == GameState.ReverseBeatRun)
             return true;
         return false;
     }

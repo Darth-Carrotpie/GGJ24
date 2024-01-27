@@ -2,6 +2,7 @@ using GenericEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : Singleton<InputController>
 {
@@ -20,13 +21,14 @@ public class InputController : Singleton<InputController>
     //sawp order
     void Update()
     {
-        if (GameStateCoordinator.GetState() == GameState.ReverseBeatRun)
+        if (GameStateCoordinator.GetState() == GameState.PostLevelWin || GameStateCoordinator.GetState() == GameState.PostLevelLose)
         {
-            RunInputsGameplayRunReverse();
+            RunInputsPostGame();
         }
-        if (GameStateCoordinator.GetState() == GameState.ForwardBeatRun)
+        if (GameStateCoordinator.GetState() == GameState.BeatRun)
         {
             RunInputsGameplayRunForward();
+            RunInputsGameplayRunReverse();
         }
         if (GameStateCoordinator.GetState() == GameState.CharacterSelection)
         {
@@ -49,7 +51,7 @@ public class InputController : Singleton<InputController>
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.ForwardBeatRun).WithPressed(true));
+            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.BeatRun).WithPressed(true));
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -132,7 +134,13 @@ public class InputController : Singleton<InputController>
             EventCoordinator.TriggerEvent(EventName.Beats.BeatHitInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(false));
         }
     }
-
+    void RunInputsPostGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
     void SelectRandomKeysForeverse() {
         List<KeyCode> tmpKeys = new List<KeyCode>(keysForReverse);
         int firstRandInt = Random.Range(0, tmpKeys.Count);

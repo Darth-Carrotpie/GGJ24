@@ -24,7 +24,7 @@ public class TestingInput : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.ForwardBeatRun));
+            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.BeatRun));
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {

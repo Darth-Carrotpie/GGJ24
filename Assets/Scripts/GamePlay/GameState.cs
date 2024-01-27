@@ -4,8 +4,7 @@ public enum GameState
 {
     IntroScene,
     CharacterSelection,
-    ForwardBeatRun,
-    ReverseBeatRun,
+    BeatRun,
     PostLevelWin,
     PostLevelLose,
 }

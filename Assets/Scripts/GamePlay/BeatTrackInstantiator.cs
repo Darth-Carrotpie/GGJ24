@@ -26,7 +26,7 @@ public class BeatTrackInstantiator : MonoBehaviour
 
     void OnGameStateChanged(GameMessage msg)
     {
-        if(msg.gameState == GameState.ForwardBeatRun)
+        if(msg.gameState == GameState.BeatRun)
         {
             level = LevelSelector.Instance.selectedLevel;
             doStart = true;
