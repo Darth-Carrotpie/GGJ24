@@ -60,7 +60,7 @@ public class LevelSelector : Singleton<LevelSelector>
         if (selectedPoster != null)
         {
             selectedPoster.GetComponent<Animator>().SetTrigger("fadeout");
-            Destroy(selectedPoster, 0.15f);
+            Destroy(selectedPoster, 0.10f);
         }
         selectedPoster = Instantiate(posters[currentSelection], posterLocation);
         selectedPoster.transform.localPosition = Vector3.zero;
