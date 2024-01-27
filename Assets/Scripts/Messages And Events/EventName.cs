@@ -12,11 +12,13 @@ namespace GenericEventSystem {
         }
         public class Item
         {
+            // Trigger when using input to dodge reverse beats
+            public static string DodgeInput() { return "Item_DodgeInput"; }
             // Trigger to throw item
             public static string Throw() { return "Item_Throw"; }
             // Triggered when the item reaches destination
             public static string CheckHit() { return "Item_CheckHit"; }
-            public static List<string> Get() { return new List<string> { Throw(), CheckHit() }; }
+            public static List<string> Get() { return new List<string> { DodgeInput(), Throw(), CheckHit() }; }
         }
         public class Score {
             public static string ScoreIncreased() { return "World_ScoreIncreased"; }
