@@ -41,3 +41,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wall
+    uniqueID: 3092157839
+    locked: 0
+  - name: Stage
+    uniqueID: 310457675
+    locked: 0
+  - name: Floor
+    uniqueID: 2924351865
+    locked: 0
+  - name: Character
+    uniqueID: 1830353543
+    locked: 0
+  - name: Spotlight
+    uniqueID: 3932574047
+    locked: 0
+  - name: Sign
+    uniqueID: 2226383921
+    locked: 0
+  - name: Poster
+    uniqueID: 1578428843
+    locked: 0
+  - name: Throwables
+    uniqueID: 2074579575
+    locked: 0
+  - name: Crowd
+    uniqueID: 1402614893
+    locked: 0
+  - name: Table
+    uniqueID: 652207669
+    locked: 0
+  - name: CrowdBooerSingle
+    uniqueID: 3861937445
+    locked: 0

@@ -7,6 +7,7 @@ public class LevelSelector : Singleton<LevelSelector>
 {
     public List<BeatLevel> levels;
     public List<GameObject> characters;
+    public List<GameObject> posters;
 
     public BeatLevel selectedLevel;
     public GameObject selectedCharacter;

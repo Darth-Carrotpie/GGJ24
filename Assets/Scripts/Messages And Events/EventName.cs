@@ -6,8 +6,9 @@ namespace GenericEventSystem {
         public class Beats {
             public static string BeatHitInput() { return "Resources_BeatHit"; }
             public static string BeatHitResult() { return "Resources_BeatHitResult"; }
+            public static string BeatCreated() { return "Resources_BeatCreated"; }
             public static string StartBeatTrack() { return "Resources_StartBeatTrack"; }
-            public static List<string> Get() { return new List<string> { BeatHitInput(), BeatHitResult(),StartBeatTrack() }; }
+            public static List<string> Get() { return new List<string> { BeatHitInput(), BeatHitResult(), BeatCreated(), StartBeatTrack() }; }
         }
 
         public class Score {

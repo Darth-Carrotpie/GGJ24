@@ -52,6 +52,11 @@ namespace GenericEventSystem {
         public ForwardBeatType fBeatType { get { return base.GetItem(ref _fBeatType, fBeatTypeetSet); } }
         public GameMessage WithFBeatType(ForwardBeatType value) => base.WithItem<ForwardBeatType>(ref _fBeatType, value, ref fBeatTypeetSet);
 
+        private ForwardBeat _fBeat;
+        private bool fBeatSet;
+        public ForwardBeat fBeat { get { return base.GetItem(ref _fBeat, fBeatSet); } }
+        public GameMessage WithFBeat(ForwardBeat value) => base.WithItem<ForwardBeat>(ref _fBeat, value, ref fBeatSet);
+
         private ReverseBeatType _rBeatType;
         private bool rBeatTypeetSet;
         public ReverseBeatType rBeatType { get { return base.GetItem(ref _rBeatType, rBeatTypeetSet); } }
