@@ -15,6 +15,8 @@ public class BeatTrackInstantiator : MonoBehaviour
     public GameObject targetThird; 
     public GameObject targetFourth;
 
+    public GameObject beatHitPrefab;
+
     void Start()
     {
         EventCoordinator.StartListening(EventName.World.GameStateChange(), OnGameStateChanged);
@@ -36,14 +38,25 @@ public class BeatTrackInstantiator : MonoBehaviour
         }
         else
         {
-            //CreateBeatTrack();
+            CreateBeatTrack(level.beatmaps[0], targetFirst);
+            CreateBeatTrack(level.beatmaps[1], targetSecond);
+            CreateBeatTrack(level.beatmaps[2], targetThird);
+            CreateBeatTrack(level.beatmaps[3], targetFourth);
+            this.enabled = false;
+            timer = 0;
         }
     }
 
     void CreateBeatTrack(Beatmap map, GameObject target)
     {
         GameObject newBeatTrack = new GameObject();
-        newBeatTrack.name = "NewBeatTrack";
+        BeatTrack bt = newBeatTrack.AddComponent<BeatTrack>();
+        bt.transform.parent = transform;
+        bt.transform.position = Vector3.zero;
+        bt.beatmap = map;
+        bt.target = target;
+        bt.beatHitPrefab = beatHitPrefab;
+        newBeatTrack.name = "NewBeatTrack:"+map.type;
         targetFirst = target;
     }
 }
