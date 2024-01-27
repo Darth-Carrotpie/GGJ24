@@ -96,61 +96,61 @@ public class LaughBooController : MonoBehaviour
     }
 
     //For Testing
-    void Update()
-    {
+    //void Update()
+    //{
 
-        if (laughBooSlider > 0.8f)
-            laughBooLevel = LaughBooLevel.VeryFunny;
-        else if (laughBooSlider < 0.8f && laughBooSlider > 0.6f)
-            laughBooLevel = LaughBooLevel.Funny;
-        else if (laughBooSlider < 0.6f && laughBooSlider > 0.4f)
-            laughBooLevel = LaughBooLevel.Boring;
-        else if (laughBooSlider < 0.4f && laughBooSlider > 0.2f)
-            laughBooLevel = LaughBooLevel.NotFunny;
-        else if (laughBooSlider < 0.2f)
-            laughBooLevel = LaughBooLevel.VeryNotFunny;
+    //    if (laughBooSlider > 0.8f)
+    //        laughBooLevel = LaughBooLevel.VeryFunny;
+    //    else if (laughBooSlider < 0.8f && laughBooSlider > 0.6f)
+    //        laughBooLevel = LaughBooLevel.Funny;
+    //    else if (laughBooSlider < 0.6f && laughBooSlider > 0.4f)
+    //        laughBooLevel = LaughBooLevel.Boring;
+    //    else if (laughBooSlider < 0.4f && laughBooSlider > 0.2f)
+    //        laughBooLevel = LaughBooLevel.NotFunny;
+    //    else if (laughBooSlider < 0.2f)
+    //        laughBooLevel = LaughBooLevel.VeryNotFunny;
 
-        if (laughBooLevel == LaughBooLevel.VeryFunny && !isTrackPlayingArray[0])
-        {
-            ResetWeightsAndBools();
-            isTrackPlayingArray[0] = true;
-            //snapshots[0].TransitionTo(timeToTransition);
-            weights[0] = 1f;
-            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
-        }
-        else if (laughBooLevel == LaughBooLevel.Funny && !isTrackPlayingArray[1])
-        {
-            ResetWeightsAndBools();
-            isTrackPlayingArray[1] = true;
-            //snapshots[1].TransitionTo(timeToTransition);
-            weights[1] = 1f;
-            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
-        }
-        else if (laughBooLevel == LaughBooLevel.Boring && !isTrackPlayingArray[2])
-        {
-            ResetWeightsAndBools();
-            isTrackPlayingArray[2] = true;
-            //snapshots[2].TransitionTo(timeToTransition);
-            weights[2] = 1f;
-            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
-        }
-        else if (laughBooLevel == LaughBooLevel.NotFunny && !isTrackPlayingArray[3])
-        {
-            ResetWeightsAndBools();
-            isTrackPlayingArray[3] = true;
-            //snapshots[3].TransitionTo(timeToTransition);
-            weights[3] = 1f;
-            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
-        }
-        else if (laughBooLevel == LaughBooLevel.VeryNotFunny && !isTrackPlayingArray[4])
-        {
-            ResetWeightsAndBools();
-            isTrackPlayingArray[4] = true;
-            //snapshots[4].TransitionTo(timeToTransition);
-            weights[4] = 1f;
-            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
-        }
-    }
+    //    if (laughBooLevel == LaughBooLevel.VeryFunny && !isTrackPlayingArray[0])
+    //    {
+    //        ResetWeightsAndBools();
+    //        isTrackPlayingArray[0] = true;
+    //        //snapshots[0].TransitionTo(timeToTransition);
+    //        weights[0] = 1f;
+    //        audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+    //    }
+    //    else if (laughBooLevel == LaughBooLevel.Funny && !isTrackPlayingArray[1])
+    //    {
+    //        ResetWeightsAndBools();
+    //        isTrackPlayingArray[1] = true;
+    //        //snapshots[1].TransitionTo(timeToTransition);
+    //        weights[1] = 1f;
+    //        audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+    //    }
+    //    else if (laughBooLevel == LaughBooLevel.Boring && !isTrackPlayingArray[2])
+    //    {
+    //        ResetWeightsAndBools();
+    //        isTrackPlayingArray[2] = true;
+    //        //snapshots[2].TransitionTo(timeToTransition);
+    //        weights[2] = 1f;
+    //        audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+    //    }
+    //    else if (laughBooLevel == LaughBooLevel.NotFunny && !isTrackPlayingArray[3])
+    //    {
+    //        ResetWeightsAndBools();
+    //        isTrackPlayingArray[3] = true;
+    //        //snapshots[3].TransitionTo(timeToTransition);
+    //        weights[3] = 1f;
+    //        audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+    //    }
+    //    else if (laughBooLevel == LaughBooLevel.VeryNotFunny && !isTrackPlayingArray[4])
+    //    {
+    //        ResetWeightsAndBools();
+    //        isTrackPlayingArray[4] = true;
+    //        //snapshots[4].TransitionTo(timeToTransition);
+    //        weights[4] = 1f;
+    //        audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+    //    }
+    //}
 
     void ResetWeightsAndBools()
     {
