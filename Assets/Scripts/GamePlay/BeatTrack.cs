@@ -1,5 +1,7 @@
+using GenericEventSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class BeatTrack : MonoBehaviour
@@ -36,6 +38,7 @@ public class BeatTrack : MonoBehaviour
             if (nextBeat.beatLengthType != BeatLengthType.pause)
             {
                 SpawnBeatHit(nextBeat);
+                EventCoordinator.TriggerEvent(EventName.Beats.BeatCreated(), GameMessage.Write().WithFBeat(nextBeat).WithFBeatType(beatType));
             }
         }
     }
