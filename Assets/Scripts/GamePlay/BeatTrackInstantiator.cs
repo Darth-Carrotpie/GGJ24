@@ -15,7 +15,10 @@ public class BeatTrackInstantiator : MonoBehaviour
     public GameObject targetThird; 
     public GameObject targetFourth;
 
-    public GameObject beatHitPrefab;
+    public GameObject beatHitPrefabEveryDay;
+    public GameObject beatHitPrefab2SelfDep;
+    public GameObject beatHitPrefab3SocialCom;
+    public GameObject beatHitPrefab4ObserveHum;
 
     bool doStart = false;
 
@@ -79,9 +82,22 @@ public class BeatTrackInstantiator : MonoBehaviour
         bt.transform.position = Vector3.zero;
         bt.beatmap = map;
         bt.target = target;
-        bt.beatHitPrefab = beatHitPrefab;
+        bt.beatHitPrefab = GetCorrectPrefab(map.type);
         newBeatTrack.name = "NewBeatTrack:"+map.type;
         targetFirst = target;
         checker.beatType = map.type;
+    }
+
+    GameObject GetCorrectPrefab(ForwardBeatType beatType)
+    {
+        switch(beatType)
+        {
+            case ForwardBeatType.None: return null;
+                case ForwardBeatType.EverydayLife: return beatHitPrefabEveryDay;
+                case ForwardBeatType.SocialComementary: return beatHitPrefab3SocialCom;
+                case ForwardBeatType.SelfDeprecation: return beatHitPrefab2SelfDep;
+                case ForwardBeatType.ObservationalHumor: return beatHitPrefab4ObserveHum;
+        }
+        return null;
     }
 }
