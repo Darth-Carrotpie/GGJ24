@@ -8,15 +8,16 @@ public class InputController : Singleton<InputController>
 {
 
     public List<KeyCode> keysForReverse = new List<KeyCode>();
-
-    public KeyCode firstRandKey = KeyCode.None;
-    public KeyCode secondRandKey = KeyCode.None;
-    public KeyCode thirdRandKey = KeyCode.None;
-    public KeyCode fourthRandKey = KeyCode.None;
+    private Dictionary<KeyCode, ReverseBeatType> randomItemKeys = new Dictionary<KeyCode, ReverseBeatType>();
 
     void Start()
     {
         SelectRandomKeysForeverse();
+    }
+
+    public Dictionary<KeyCode, ReverseBeatType> GetRandomItemKeys()
+    {
+        return randomItemKeys;
     }
     //sawp order
     void Update()
@@ -101,37 +102,17 @@ public class InputController : Singleton<InputController>
 
     void RunInputsGameplayRunReverse()
     {
-        if (Input.GetKeyDown(firstRandKey))
+        foreach (var keyItem in randomItemKeys)
         {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(true));
-        }
-        if (Input.GetKeyDown(secondRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(true));
-        }
-        if (Input.GetKeyDown(thirdRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(true));
-        }
-        if (Input.GetKeyDown(fourthRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(true));
-        }
-        if (Input.GetKeyUp(firstRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Cat).WithPressed(false));
-        }
-        if (Input.GetKeyUp(secondRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Chair).WithPressed(false));
-        }
-        if (Input.GetKeyUp(thirdRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Tomato).WithPressed(false));
-        }
-        if (Input.GetKeyUp(fourthRandKey))
-        {
-            EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(ReverseBeatType.Bottle).WithPressed(false));
+            if (Input.GetKeyDown(keyItem.Key))
+            {
+                EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(keyItem.Value).WithPressed(true));
+            }
+
+            if (Input.GetKeyUp(keyItem.Key))
+            {
+                EventCoordinator.TriggerEvent(EventName.Item.DodgeInput(), GameMessage.Write().WithRBeatType(keyItem.Value).WithPressed(false));
+            }
         }
     }
     void RunInputsPostGame()
@@ -151,20 +132,20 @@ public class InputController : Singleton<InputController>
         tmpKeys.Remove(KeyCode.D);
         tmpKeys.Remove(KeyCode.F);
 
-        int firstRandInt = Random.Range(0, tmpKeys.Count);
-        firstRandKey = tmpKeys[firstRandInt];
-        tmpKeys.RemoveAt(firstRandInt);
+        int randomKeyIndex = Random.Range(0, tmpKeys.Count);
+        randomItemKeys.Add(tmpKeys[randomKeyIndex], ReverseBeatType.Bottle);
+        tmpKeys.RemoveAt(randomKeyIndex);
 
-        int scndRandInt = Random.Range(0, tmpKeys.Count);
-        secondRandKey = tmpKeys[scndRandInt];
-        tmpKeys.RemoveAt(scndRandInt);
+        randomKeyIndex = Random.Range(0, tmpKeys.Count);
+        randomItemKeys.Add(tmpKeys[randomKeyIndex], ReverseBeatType.Cat);
+        tmpKeys.RemoveAt(randomKeyIndex);
 
-        int thrdRandInt = Random.Range(0, tmpKeys.Count);
-        thirdRandKey = tmpKeys[thrdRandInt];
-        tmpKeys.RemoveAt(thrdRandInt);
+        randomKeyIndex = Random.Range(0, tmpKeys.Count);
+        randomItemKeys.Add(tmpKeys[randomKeyIndex], ReverseBeatType.Chair);
+        tmpKeys.RemoveAt(randomKeyIndex);
 
-        int fourthRandInt = Random.Range(0, tmpKeys.Count);
-        fourthRandKey = tmpKeys[fourthRandInt];
-        tmpKeys.RemoveAt(fourthRandInt);
+        randomKeyIndex = Random.Range(0, tmpKeys.Count);
+        randomItemKeys.Add(tmpKeys[randomKeyIndex], ReverseBeatType.Tomato);
+        tmpKeys.RemoveAt(randomKeyIndex);
     }
 }
