@@ -56,7 +56,11 @@ AudioMixerSnapshotController:
   m_Name: VeryNotFunny
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 882359f0e83bed346bcb60b2d24772c6
-  m_FloatValues: {}
+  m_FloatValues:
+    74d6b8f1df712f34b9f86519c7b9c711: -80
+    b6d77913f5bc2304795a89229d28ca4f: -80
+    b03dfeb390dab4d429b672687ef2b224: -80
+    a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
 --- !u!243 &-4021416726988452763
 AudioMixerGroupController:
@@ -119,7 +123,12 @@ AudioMixerSnapshotController:
   m_Name: Funny
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 58b3fca1e3092b245be620aeca37c72f
-  m_FloatValues: {}
+  m_FloatValues:
+    74d6b8f1df712f34b9f86519c7b9c711: 0.04171297
+    b6d77913f5bc2304795a89229d28ca4f: -80
+    b03dfeb390dab4d429b672687ef2b224: -80
+    1320427adcd34314385fefd576a5e159: -80
+    a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
 --- !u!245 &-1865476360278712681
 AudioMixerSnapshotController:
@@ -130,8 +139,17 @@ AudioMixerSnapshotController:
   m_Name: Boring
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: dba1d2e480f314e489fbc13467c77879
-  m_FloatValues: {}
-  m_TransitionOverrides: {}
+  m_FloatValues:
+    74d6b8f1df712f34b9f86519c7b9c711: -80
+    b03dfeb390dab4d429b672687ef2b224: -80
+    1320427adcd34314385fefd576a5e159: -80
+    a67479eb04197ee488ab1ee22e34765e: -80
+  m_TransitionOverrides:
+    74d6b8f1df712f34b9f86519c7b9c711: 6
+    b6d77913f5bc2304795a89229d28ca4f: 6
+    b03dfeb390dab4d429b672687ef2b224: 6
+    1320427adcd34314385fefd576a5e159: 6
+    a67479eb04197ee488ab1ee22e34765e: 6
 --- !u!243 &-580700628488403960
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -195,7 +213,7 @@ AudioMixerController:
     - 1613ba3e40446854299199b1091ddc1b
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 24500006}
+  m_TargetSnapshot: {fileID: -1865476360278712681}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -273,7 +291,11 @@ AudioMixerSnapshotController:
   m_Name: NotFunny
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ae014f0f03aac01458f613a2c75cf00a
-  m_FloatValues: {}
+  m_FloatValues:
+    74d6b8f1df712f34b9f86519c7b9c711: -65.85236
+    b6d77913f5bc2304795a89229d28ca4f: -64.7478
+    1320427adcd34314385fefd576a5e159: -80
+    a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
 --- !u!243 &9219621724290645576
 AudioMixerGroupController:
