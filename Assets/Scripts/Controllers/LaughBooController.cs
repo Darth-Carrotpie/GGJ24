@@ -1,9 +1,6 @@
 using GenericEventSystem;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class LaughBooController : MonoBehaviour
 {
@@ -17,58 +14,88 @@ public class LaughBooController : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioMixerSnapshot[] snapshots;
     [SerializeField] float[] weights;
-
     [SerializeField] bool[] isTrackPlayingArray = new bool[5];
 
     [Range(0, 1f)]
     [SerializeField] float laughBooSlider = 0.5f;
 
+    [SerializeField] AudioMixerGroup master;
     [SerializeField] float timeToTransition = 0.5f;
+    int crowdReactionValue;
+
+    private void Awake()
+    {
+        for (int i = 0; i < mainAudioSourceArray.Length; i++)
+        {
+            mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
+            mainAudioSourceArray[i].playOnAwake = true;
+        }
+    }
 
     private void Start()
     {
-        //EventCoordinator.StartListening(EventName.World.CrowdStateChange(), Test);
+        EventCoordinator.StartListening(EventName.World.CrowdStateChange(), GetReactionValue);
 
         //if(instance == null)
         //    instance = this;
 
-        //track01 = GetComponent<AudioSource>();
-        //track02 = GetComponent<AudioSource>();
 
-        //track01 = gameObject.AddComponent<AudioSource>();
-        //track02 = gameObject.AddComponent<AudioSource>();
-
-
-        //for (int i = 0; i < mainAudioSourceArray.Length; i++)
-        //{
-        //    mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
-        //    for (int p = 0; p < mainLaughArray.Length; p++)
-        //    {
-        //        if(i == p)
-        //            mainAudioSourceArray[i].clip = mainLaughArray[p];
-        //    }   
-        //}
-
-        //audioMixer = GetComponent<AudioMixer>();
-
-        for (int i = 0; i < mainAudioSourceArray.Length; i++)
-        {
-            mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
-        }
 
         for (int i = 0; i < isTrackPlayingArray.Length; i++)
         {
             isTrackPlayingArray[i] = false;
         }
 
-        //audioMixer.TransitionToSnapshots(snapshots, 0.1f, 0.5f);
+        weights[2] = 1f;
+        audioMixer.TransitionToSnapshots(snapshots, weights, 0);
 
-        snapshots[2].TransitionTo(timeToTransition);
-        laughBooLevel = LaughBooLevel.Boring;
-        
-       
+        //snapshots[2].TransitionTo(timeToTransition);
+        crowdReactionValue = (int)LaughBooLevel.Boring;
+
+        //audioMixer.SetFloat("MasterVolume", Mathf.Log10(1) * 20);
     }
 
+    //production
+    private void Update()
+    {
+        if (crowdReactionValue == (int)LaughBooLevel.VeryFunny && !isTrackPlayingArray[0])
+        {
+            ResetWeightsAndBools();
+            isTrackPlayingArray[0] = true;
+            weights[0] = 1f;
+            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+        }
+        else if (crowdReactionValue == (int)LaughBooLevel.Funny && !isTrackPlayingArray[1])
+        {
+            ResetWeightsAndBools();
+            isTrackPlayingArray[1] = true;
+            weights[1] = 1f;
+            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+        }
+        else if (crowdReactionValue == (int)LaughBooLevel.Boring && !isTrackPlayingArray[2])
+        {
+            ResetWeightsAndBools();
+            isTrackPlayingArray[2] = true;
+            weights[2] = 1f;
+            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+        }
+        else if (crowdReactionValue == (int)LaughBooLevel.NotFunny && !isTrackPlayingArray[3])
+        {
+            ResetWeightsAndBools();
+            isTrackPlayingArray[3] = true;
+            weights[3] = 1f;
+            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+        }
+        else if (crowdReactionValue == (int)LaughBooLevel.VeryNotFunny && !isTrackPlayingArray[4])
+        {
+            ResetWeightsAndBools();
+            isTrackPlayingArray[4] = true;
+            weights[4] = 1f;
+            audioMixer.TransitionToSnapshots(snapshots, weights, timeToTransition);
+        }
+    }
+
+    //For Testing
     void Update()
     {
 
@@ -85,7 +112,7 @@ public class LaughBooController : MonoBehaviour
 
         if (laughBooLevel == LaughBooLevel.VeryFunny && !isTrackPlayingArray[0])
         {
-            ResetWeights();
+            ResetWeightsAndBools();
             isTrackPlayingArray[0] = true;
             //snapshots[0].TransitionTo(timeToTransition);
             weights[0] = 1f;
@@ -93,7 +120,7 @@ public class LaughBooController : MonoBehaviour
         }
         else if (laughBooLevel == LaughBooLevel.Funny && !isTrackPlayingArray[1])
         {
-            ResetWeights();
+            ResetWeightsAndBools();
             isTrackPlayingArray[1] = true;
             //snapshots[1].TransitionTo(timeToTransition);
             weights[1] = 1f;
@@ -101,7 +128,7 @@ public class LaughBooController : MonoBehaviour
         }
         else if (laughBooLevel == LaughBooLevel.Boring && !isTrackPlayingArray[2])
         {
-            ResetWeights();
+            ResetWeightsAndBools();
             isTrackPlayingArray[2] = true;
             //snapshots[2].TransitionTo(timeToTransition);
             weights[2] = 1f;
@@ -109,7 +136,7 @@ public class LaughBooController : MonoBehaviour
         }
         else if (laughBooLevel == LaughBooLevel.NotFunny && !isTrackPlayingArray[3])
         {
-            ResetWeights();
+            ResetWeightsAndBools();
             isTrackPlayingArray[3] = true;
             //snapshots[3].TransitionTo(timeToTransition);
             weights[3] = 1f;
@@ -117,7 +144,7 @@ public class LaughBooController : MonoBehaviour
         }
         else if (laughBooLevel == LaughBooLevel.VeryNotFunny && !isTrackPlayingArray[4])
         {
-            ResetWeights();
+            ResetWeightsAndBools();
             isTrackPlayingArray[4] = true;
             //snapshots[4].TransitionTo(timeToTransition);
             weights[4] = 1f;
@@ -125,7 +152,7 @@ public class LaughBooController : MonoBehaviour
         }
     }
 
-    void ResetWeights()
+    void ResetWeightsAndBools()
     {
         for (int i = 0; i < weights.Length; i++)
         {
@@ -138,78 +165,9 @@ public class LaughBooController : MonoBehaviour
         }
     }
 
-    void Test(GameMessage msg)
+    void GetReactionValue(GameMessage msg)
     {
+        crowdReactionValue = msg.intMessage;
         Debug.Log(msg.intMessage);
     }
-
-    //public void SwapTrack(AudioClip newAudioClip)
-    //{
-
-
-    //    StopAllCoroutines();
-
-    //    StartCoroutine(FadeTrack(newAudioClip));
-
-    //    //if (isPlayingTrack01)
-    //    //{
-    //    //    track02.clip = newAudioClip;
-    //    //    track01.Stop();
-    //    //    track02.Play();
-
-    //    //}
-    //    //else
-    //    //{
-    //    //    track01.clip = newAudioClip;
-    //    //    track02.Stop();
-    //    //    track01.Play();
-
-    //    //}
-
-    //    isPlayingTrack01 = !isPlayingTrack01; 
-    //}
-
-    //private IEnumerator FadeTrack(AudioClip newAudioClip)
-    //{
-    //    float timeToFade = 1.0f;
-    //    float timeElapsed = 0;
-
-    //    if (isPlayingTrack01)
-    //    {
-    //        //isPlayingTrack01 = !isPlayingTrack01;
-
-    //        track02.clip = newAudioClip;
-    //        track02.Play();
-
-
-    //        while(timeElapsed < timeToFade)
-    //        {
-    //            track02.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-    //            track01.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
-    //            timeElapsed += Time.deltaTime;
-    //            yield return null;
-    //        }
-
-    //        track01.Stop();
-
-
-    //    }
-    //    else
-    //    {
-    //        //isPlayingTrack01 = !isPlayingTrack01;
-
-    //        track01.clip = newAudioClip;
-    //        track01.Play();
-
-    //        while (timeElapsed < timeToFade)
-    //        {
-    //            track01.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-    //            track02.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
-    //            timeElapsed += Time.deltaTime;
-    //            yield return null;
-    //        }
-
-    //        track02.Stop();
-    //    }
-    //}
 }
