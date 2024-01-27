@@ -6,32 +6,42 @@ using UnityEngine;
 public class AudioTestInput : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown((KeyCode.A)))
+        HandleKeyInput(KeyCode.Q, "mini", ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.W, "mini", ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.E, "mini", ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.R, "mini", ForwardBeatType.SelfDeprecation);
+
+        HandleKeyInput(KeyCode.A, "medium", ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.S, "medium", ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.D, "medium", ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.F, "medium", ForwardBeatType.SelfDeprecation);
+
+        HandleKeyInput(KeyCode.Z, "long", ForwardBeatType.SocialComementary);
+        HandleKeyInput(KeyCode.X, "long", ForwardBeatType.ObservationalHumor);
+        HandleKeyInput(KeyCode.C, "long", ForwardBeatType.EverydayLife);
+        HandleKeyInput(KeyCode.V, "long", ForwardBeatType.SelfDeprecation);
+    }
+    
+    
+    private static void HandleKeyInput(KeyCode keyCode, string length, ForwardBeatType beatType)
+    {
+        if (Input.GetKeyDown(keyCode))
         {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(), GameMessage.Write().WithStringMessage("mini").WithFBeatType(ForwardBeatType.SocialComementary));
+            TriggerBeatEvent(length, beatType);
         }
-        
-        if (Input.GetKeyDown((KeyCode.S)))
-        {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(), GameMessage.Write().WithStringMessage("mini").WithFBeatType(ForwardBeatType.ObservationalHumor));
-        }
-        
-        if (Input.GetKeyDown((KeyCode.D)))
-        {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(), GameMessage.Write().WithStringMessage("mini").WithFBeatType(ForwardBeatType.EverydayLife));
-        }
-        
-        if (Input.GetKeyDown((KeyCode.F)))
-        {
-            EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(), GameMessage.Write().WithStringMessage("mini").WithFBeatType(ForwardBeatType.SelfDeprecation));
-        }
+    }
+
+    private static void TriggerBeatEvent(string length, ForwardBeatType beatType)
+    {
+        EventCoordinator.TriggerEvent(EventName.Beats.BeatHitResult(),
+            GameMessage.Write().WithStringMessage(length).WithFBeatType(beatType));
     }
 }

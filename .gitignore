@@ -4,6 +4,8 @@
 # this ignore for now because we are not building levels yet
 /Assets/Resources/*
 /Assets/Resources/**/*.meta
+!/Assets/Resources/Audio
+
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /[Ll]ibrary/
@@ -39,6 +41,8 @@
 
 # Visual Studio cache directory
 .vs/
+# Jetbrains IDE settings
+.idea/
 
 # Gradle cache directory
 .gradle/
