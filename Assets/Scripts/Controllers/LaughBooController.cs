@@ -32,15 +32,15 @@ public class LaughBooController : MonoBehaviour
         //track02 = gameObject.AddComponent<AudioSource>();
 
     
-        for (int i = 0; i < mainAudioSourceArray.Length; i++)
-        {
-            mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
-            for (int p = 0; p < mainLaughArray.Length; p++)
-            {
-                if(i == p)
-                    mainAudioSourceArray[i].clip = mainLaughArray[p];
-            }   
-        }
+        //for (int i = 0; i < mainAudioSourceArray.Length; i++)
+        //{
+        //    mainAudioSourceArray[i] = gameObject.AddComponent<AudioSource>();
+        //    for (int p = 0; p < mainLaughArray.Length; p++)
+        //    {
+        //        if(i == p)
+        //            mainAudioSourceArray[i].clip = mainLaughArray[p];
+        //    }   
+        //}
 
         audioMixer = GetComponent<AudioMixer>();
 
@@ -64,112 +64,113 @@ public class LaughBooController : MonoBehaviour
         else if (laughBooSlider < 0.2f)
             laughBooLevel = LaughBooLevel.VeryNotFunny;
 
-        //if (laughBooLevel == LaughBooLevel.VeryFunny && track01.clip != mainLaughArray[0])
-        if (laughBooLevel == LaughBooLevel.VeryFunny)
-        {
-            //track01.Stop();
-            //track01.clip = mainLaughArray[0];
-            //track01.Play();
-            SwapTrack(mainLaughArray[0]);
+        ////if (laughBooLevel == LaughBooLevel.VeryFunny && track01.clip != mainLaughArray[0])
+        //if (laughBooLevel == LaughBooLevel.VeryFunny)
+        //{
 
-        }
-        else if (laughBooLevel == LaughBooLevel.Funny && track01.clip != mainLaughArray[1])
-        {
-            //track01.Stop();
-            //track01.clip = mainLaughArray[1];
-            //track01.Play();
-            SwapTrack(mainLaughArray[1]);
-        }
-        else if (laughBooLevel == LaughBooLevel.Boring && track01.clip != mainLaughArray[2])
-        {
-            //track01.Stop();
-            //track01.clip = mainLaughArray[2];
-            //track01.Play();
-            SwapTrack(mainLaughArray[2]);
-        }
-        else if (laughBooLevel == LaughBooLevel.NotFunny && track01.clip != mainLaughArray[3])
-        {
-            //track01.Stop();
-            //track01.clip = mainLaughArray[3];
-            //track01.Play();
-            SwapTrack(mainLaughArray[3]);
-        }
-        else if (laughBooLevel == LaughBooLevel.VeryNotFunny && track01.clip != mainLaughArray[4])
-        {
-            //track01.Stop();
-            //track01.clip = mainLaughArray[4];
-            //track01.Play();
-            SwapTrack(mainLaughArray[4]);
-        }
+        //    //track01.Stop();
+        //    //track01.clip = mainLaughArray[0];
+        //    //track01.Play();
+        //    SwapTrack(mainLaughArray[0]);
+
+        //}
+        //else if (laughBooLevel == LaughBooLevel.Funny && track01.clip != mainLaughArray[1])
+        //{
+        //    //track01.Stop();
+        //    //track01.clip = mainLaughArray[1];
+        //    //track01.Play();
+        //    SwapTrack(mainLaughArray[1]);
+        //}
+        //else if (laughBooLevel == LaughBooLevel.Boring && track01.clip != mainLaughArray[2])
+        //{
+        //    //track01.Stop();
+        //    //track01.clip = mainLaughArray[2];
+        //    //track01.Play();
+        //    SwapTrack(mainLaughArray[2]);
+        //}
+        //else if (laughBooLevel == LaughBooLevel.NotFunny && track01.clip != mainLaughArray[3])
+        //{
+        //    //track01.Stop();
+        //    //track01.clip = mainLaughArray[3];
+        //    //track01.Play();
+        //    SwapTrack(mainLaughArray[3]);
+        //}
+        //else if (laughBooLevel == LaughBooLevel.VeryNotFunny && track01.clip != mainLaughArray[4])
+        //{
+        //    //track01.Stop();
+        //    //track01.clip = mainLaughArray[4];
+        //    //track01.Play();
+        //    SwapTrack(mainLaughArray[4]);
+        //}
     }
 
-    public void SwapTrack(AudioClip newAudioClip)
-    {
+    //public void SwapTrack(AudioClip newAudioClip)
+    //{
         
 
-        StopAllCoroutines();
+    //    StopAllCoroutines();
 
-        StartCoroutine(FadeTrack(newAudioClip));
+    //    StartCoroutine(FadeTrack(newAudioClip));
 
-        //if (isPlayingTrack01)
-        //{
-        //    track02.clip = newAudioClip;
-        //    track01.Stop();
-        //    track02.Play();
+    //    //if (isPlayingTrack01)
+    //    //{
+    //    //    track02.clip = newAudioClip;
+    //    //    track01.Stop();
+    //    //    track02.Play();
             
-        //}
-        //else
-        //{
-        //    track01.clip = newAudioClip;
-        //    track02.Stop();
-        //    track01.Play();
+    //    //}
+    //    //else
+    //    //{
+    //    //    track01.clip = newAudioClip;
+    //    //    track02.Stop();
+    //    //    track01.Play();
             
-        //}
+    //    //}
 
-        isPlayingTrack01 = !isPlayingTrack01; 
-    }
+    //    isPlayingTrack01 = !isPlayingTrack01; 
+    //}
     
-    private IEnumerator FadeTrack(AudioClip newAudioClip)
-    {
-        float timeToFade = 1.0f;
-        float timeElapsed = 0;
+    //private IEnumerator FadeTrack(AudioClip newAudioClip)
+    //{
+    //    float timeToFade = 1.0f;
+    //    float timeElapsed = 0;
 
-        if (isPlayingTrack01)
-        {
-            //isPlayingTrack01 = !isPlayingTrack01;
+    //    if (isPlayingTrack01)
+    //    {
+    //        //isPlayingTrack01 = !isPlayingTrack01;
 
-            track02.clip = newAudioClip;
-            track02.Play();
+    //        track02.clip = newAudioClip;
+    //        track02.Play();
             
 
-            while(timeElapsed < timeToFade)
-            {
-                track02.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-                track01.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
-            }
+    //        while(timeElapsed < timeToFade)
+    //        {
+    //            track02.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+    //            track01.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
+    //            timeElapsed += Time.deltaTime;
+    //            yield return null;
+    //        }
 
-            track01.Stop();
+    //        track01.Stop();
 
             
-        }
-        else
-        {
-            //isPlayingTrack01 = !isPlayingTrack01;
+    //    }
+    //    else
+    //    {
+    //        //isPlayingTrack01 = !isPlayingTrack01;
 
-            track01.clip = newAudioClip;
-            track01.Play();
+    //        track01.clip = newAudioClip;
+    //        track01.Play();
 
-            while (timeElapsed < timeToFade)
-            {
-                track01.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-                track02.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
-            }
+    //        while (timeElapsed < timeToFade)
+    //        {
+    //            track01.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+    //            track02.volume = Mathf.Lerp(1, 2, timeElapsed / timeToFade);
+    //            timeElapsed += Time.deltaTime;
+    //            yield return null;
+    //        }
 
-            track02.Stop();
-        }
-    }
+    //        track02.Stop();
+    //    }
+    //}
 }
