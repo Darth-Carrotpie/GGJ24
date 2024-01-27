@@ -60,7 +60,7 @@ AudioMixerSnapshotController:
     74d6b8f1df712f34b9f86519c7b9c711: -80
     b6d77913f5bc2304795a89229d28ca4f: -80
     b03dfeb390dab4d429b672687ef2b224: -80
-    069c05d724fd26a4bbf16f947a77a3d0: -80
+    069c05d724fd26a4bbf16f947a77a3d0: 0.10800299
     a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
 --- !u!243 &-4021416726988452763
@@ -128,7 +128,7 @@ AudioMixerSnapshotController:
     74d6b8f1df712f34b9f86519c7b9c711: 0.04171297
     b6d77913f5bc2304795a89229d28ca4f: -80
     b03dfeb390dab4d429b672687ef2b224: -80
-    069c05d724fd26a4bbf16f947a77a3d0: -80
+    069c05d724fd26a4bbf16f947a77a3d0: -0.037667945
     1320427adcd34314385fefd576a5e159: -80
     a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
@@ -144,7 +144,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     74d6b8f1df712f34b9f86519c7b9c711: -80
     b03dfeb390dab4d429b672687ef2b224: -80
-    069c05d724fd26a4bbf16f947a77a3d0: -80
+    069c05d724fd26a4bbf16f947a77a3d0: 0.025578514
     1320427adcd34314385fefd576a5e159: -80
     a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides:
@@ -218,7 +218,7 @@ AudioMixerController:
     - 1613ba3e40446854299199b1091ddc1b
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 5440498762732522858}
+  m_TargetSnapshot: {fileID: -4117455988471784579}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ AudioMixerSnapshotController:
     74d6b8f1df712f34b9f86519c7b9c711: -80
     b6d77913f5bc2304795a89229d28ca4f: -80
     b03dfeb390dab4d429b672687ef2b224: -80
-    069c05d724fd26a4bbf16f947a77a3d0: -80
+    069c05d724fd26a4bbf16f947a77a3d0: 0.025578512
     1320427adcd34314385fefd576a5e159: -80
   m_TransitionOverrides: {}
 --- !u!244 &638311757859051900
@@ -299,7 +299,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     74d6b8f1df712f34b9f86519c7b9c711: -65.85236
     b6d77913f5bc2304795a89229d28ca4f: -64.7478
-    069c05d724fd26a4bbf16f947a77a3d0: -80
+    069c05d724fd26a4bbf16f947a77a3d0: 0.23288241
     1320427adcd34314385fefd576a5e159: -80
     a67479eb04197ee488ab1ee22e34765e: -80
   m_TransitionOverrides: {}
