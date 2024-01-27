@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GenericEventSystem;
 using Unity;
 using UnityEngine;
 
@@ -16,15 +17,17 @@ public class ThrowManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(throwItemPrefabs);
+        EventCoordinator.StartListening(EventName.Item.Throw(), Throw);
+
         thrower = FindObjectOfType<Thrower>();
         throwTarget = FindObjectOfType<ThrowTarget>();
+
+        // TODO: remove
         StartCoroutine(ThrowLoop());
     }
 
-    void Throw()
+    void Throw(GameMessage msg)
     {
-        // TODO: trigger from event;
         StartCoroutine(ThrowAnimation());
     }
 
@@ -52,7 +55,7 @@ public class ThrowManager : MonoBehaviour
                 // Show one last frame
                 yield return null;
 
-                // TODO: trigger event to dodge or be hit (based on keyboard?)
+                EventCoordinator.TriggerEvent(EventName.Item.CheckHit(), new GameMessage());
                 Destroy(itemInstance.gameObject);
                 break;
             }
@@ -61,11 +64,12 @@ public class ThrowManager : MonoBehaviour
 
     }
 
+    // TODO: remove
     IEnumerator ThrowLoop()
     {
         yield return new WaitForSeconds(4);
 
-        Throw();
+        Throw(new GameMessage());
         StartCoroutine(ThrowLoop());
     }
 }
