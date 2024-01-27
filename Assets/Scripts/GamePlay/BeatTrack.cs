@@ -38,7 +38,7 @@ public class BeatTrack : MonoBehaviour
             if (nextBeat.beatLengthType != BeatLengthType.pause)
             {
                 SpawnBeatHit(nextBeat);
-                EventCoordinator.TriggerEvent(EventName.Beats.BeatCreated(), GameMessage.Write().WithFBeat(nextBeat));
+                EventCoordinator.TriggerEvent(EventName.Beats.BeatCreated(), GameMessage.Write().WithFBeat(nextBeat).WithFBeatType(beatType));
             }
         }
     }
