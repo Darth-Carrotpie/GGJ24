@@ -16,6 +16,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         EventCoordinator.StartListening(EventName.Item.DodgeInput(), OnDodgeInput);
+        EventCoordinator.StartListening(EventName.Item.CheckHit(), OnCheckHit);
         // TMP: code to visualize input
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
         initialSpritePosition = spriteTransform.localPosition;
@@ -43,8 +44,8 @@ public class CharacterController : MonoBehaviour
     {
         var (targetPosition, targetRotation) = PoseForActiveType();
 
-        spriteTransform.position = Vector3.Lerp(spriteTransform.position, targetPosition, 0.1f);
-        spriteTransform.rotation = Quaternion.Lerp(spriteTransform.rotation, targetRotation, 0.1f);
+        spriteTransform.localPosition = Vector3.Lerp(spriteTransform.localPosition, targetPosition, 5 * Time.deltaTime);
+        spriteTransform.localRotation = Quaternion.Lerp(spriteTransform.localRotation, targetRotation, 5 * Time.deltaTime);
     }
 
     public ReverseBeatType ActiveType()
@@ -67,5 +68,10 @@ public class CharacterController : MonoBehaviour
                 activeType = ReverseBeatType.None;
             }
         }
+    }
+
+    void OnCheckHit(GameMessage msg)
+    {
+        // TODO: logic here? Compare with activeType?
     }
 }

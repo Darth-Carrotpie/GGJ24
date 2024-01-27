@@ -141,8 +141,16 @@ public class InputController : Singleton<InputController>
             SceneManager.LoadScene(0);
         }
     }
-    void SelectRandomKeysForeverse() {
+    void SelectRandomKeysForeverse()
+    {
         List<KeyCode> tmpKeys = new List<KeyCode>(keysForReverse);
+
+        // remove keys used for laugh hits
+        tmpKeys.Remove(KeyCode.A);
+        tmpKeys.Remove(KeyCode.S);
+        tmpKeys.Remove(KeyCode.D);
+        tmpKeys.Remove(KeyCode.F);
+
         int firstRandInt = Random.Range(0, tmpKeys.Count);
         firstRandKey = tmpKeys[firstRandInt];
         tmpKeys.RemoveAt(firstRandInt);
