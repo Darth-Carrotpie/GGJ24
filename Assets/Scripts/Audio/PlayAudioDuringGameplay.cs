@@ -25,7 +25,7 @@ namespace Audio
 
         private void OnGameStateChange(GameMessage msg)
         {
-            if (msg.gameState == GameState.BeatRun)
+            if (msg.gameState == GameState.CharacterSelection)
             {
                 isFading = false;
                 musicSource.loop = true;
@@ -34,7 +34,8 @@ namespace Audio
             }
             else
             {
-                StartFadeOut();
+                if(msg.gameState != GameState.BeatRun)
+                    StartFadeOut();
             }
         }
 
