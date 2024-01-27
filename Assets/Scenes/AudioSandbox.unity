@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b2a5fcfbb3a74438824a911a81c862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterFolderName: Jox
+  characterFolderName: Hanna
   airySource: {fileID: 2098413213}
   openSource: {fileID: 2098413217}
   closedSource: {fileID: 2098413216}

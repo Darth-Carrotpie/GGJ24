@@ -10,7 +10,14 @@ namespace GenericEventSystem {
             public static string StartBeatTrack() { return "Resources_StartBeatTrack"; }
             public static List<string> Get() { return new List<string> { BeatHitInput(), BeatHitResult(), BeatCreated(), StartBeatTrack() }; }
         }
-
+        public class Item
+        {
+            // Trigger to throw item
+            public static string Throw() { return "Item_Throw"; }
+            // Triggered when the item reaches destination
+            public static string CheckHit() { return "Item_CheckHit"; }
+            public static List<string> Get() { return new List<string> { Throw(), CheckHit() }; }
+        }
         public class Score {
             public static string ScoreIncreased() { return "World_ScoreIncreased"; }
             public static string ComboIncreased() { return "World_ComboIncreased"; }
@@ -55,6 +62,7 @@ namespace GenericEventSystem {
         //This master Get() function returns all of the messages, thus enabling things like Editor extensions, i.e. the list picker/selector.
         public static List<string> Get() {
             return new List<string> {}.Concat(Beats.Get())
+                .Concat(Item.Get())
                 .Concat(Editor.Get())
                 .Concat(Input.Get())
                 .Concat(AI.Get())
