@@ -28,13 +28,9 @@ public class TestingInput : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.ReverseBeatRun));
-        }
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
             EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.PostLevelWin));
         }
-        if (Input.GetKeyDown(KeyCode.F6))
+        if (Input.GetKeyDown(KeyCode.F5))
         {
             EventCoordinator.TriggerEvent(EventName.World.GameStateChange(), GameMessage.Write().WithNewGameState(GameState.PostLevelLose));
         }
