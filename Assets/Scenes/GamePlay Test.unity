@@ -5663,12 +5663,15 @@ MonoBehaviour:
   levels:
   - {fileID: 1961946096879622919, guid: b5f824c7b3f7a034c85f38b612104348, type: 3}
   - {fileID: 1961946096879622919, guid: b5f824c7b3f7a034c85f38b612104348, type: 3}
+  - {fileID: 1961946096879622919, guid: b5f824c7b3f7a034c85f38b612104348, type: 3}
   characters:
   - {fileID: 6076382191854695755, guid: 1ff9d52cf461f4446bd297d546a65247, type: 3}
   - {fileID: 401907894247373607, guid: ac769ee2634efe742a6600c39fd03711, type: 3}
+  - {fileID: 401907894247373607, guid: c6869c2b9fca05348a8a25eaddfd885d, type: 3}
   posters:
   - {fileID: 2740720639221015211, guid: 3d4fb6352ee7ab74eb19a9b5835070b1, type: 3}
   - {fileID: 6848768440899844315, guid: deae2cfe3cada6846b24f28216382e7f, type: 3}
+  - {fileID: 2740720639221015211, guid: 3944621ce587ec143bf7ba1db84665cd, type: 3}
   selectedLevel: {fileID: 0}
   selectedCharacter: {fileID: 0}
   selectedPoster: {fileID: 0}

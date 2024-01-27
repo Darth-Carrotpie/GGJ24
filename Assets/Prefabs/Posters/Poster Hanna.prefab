@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6098009730607370271}
   - component: {fileID: -390338271294936648}
   m_Layer: 0
-  m_Name: Poster Jox
+  m_Name: Poster Hanna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 1578428843
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 39456aae66457864aa4f17283578419b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3d98752a1acf194aa8fc265af18bf44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

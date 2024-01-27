@@ -60,17 +60,17 @@ public class LevelSelector : Singleton<LevelSelector>
         if (selectedPoster != null)
         {
             selectedPoster.GetComponent<Animator>().SetTrigger("fadeout");
-            Destroy(selectedPoster, 0.5f);
+            Destroy(selectedPoster, 0.15f);
         }
         selectedPoster = Instantiate(posters[currentSelection], posterLocation);
-        selectedPoster.transform.position = Vector3.zero;
+        selectedPoster.transform.localPosition = Vector3.zero;
     }
     void OnSceneChange(GameMessage msg)
     {
         if(msg.gameState == GameState.BeatRun)
         {
             GameObject newChar = Instantiate(selectedCharacter, comedianLocation);
-            newChar.transform.position = Vector3.zero;
+            newChar.transform.localPosition = Vector3.zero;
         }
     }
 }
