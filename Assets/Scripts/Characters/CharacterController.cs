@@ -15,6 +15,8 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<ThrowManager>().SetThrowTarget(GetComponentInChildren<ThrowTarget>());
+
         EventCoordinator.StartListening(EventName.Item.DodgeInput(), OnDodgeInput);
         EventCoordinator.StartListening(EventName.Item.CheckHit(), OnCheckHit);
         // TMP: code to visualize input

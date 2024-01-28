@@ -24,6 +24,12 @@ public class ThrowManager : MonoBehaviour
         throwTarget = FindObjectOfType<ThrowTarget>();
     }
 
+    // call if adding a new throw target later
+    public void SetThrowTarget(ThrowTarget newTarget)
+    {
+        throwTarget = newTarget;
+    }
+
     float HateNeededToThrow()
     {
         switch (currentCrowdState)
