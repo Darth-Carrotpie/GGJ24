@@ -46,7 +46,7 @@ public class ScoreTracker : Singleton<ScoreTracker>
     {
         return Instance.scoreItems[indexAt];
     }
-    public static int GetLastItemsAvarage(int _count){
+    public static float GetLastItemsAvarage(int _count){
         int avg = -1;
         int count = _count;
         if(count > Instance.scoreItems.Count){

@@ -8,6 +8,7 @@ public class CrowdReactionController : MonoBehaviour
     public float performance;
     public float currBeatWeigth = .2f;
     public float comboIncrease = 0.05f;
+    public float missPunish = 1.5f;
     public int avgCount = 5;
     public float[] performaceForReactionLevels = {40f, 30f, 20f, 10f, 0f}; //kolkas random, change later.
     int previousLvl = -1;
@@ -20,13 +21,18 @@ public class CrowdReactionController : MonoBehaviour
     }
     void OnBeatHit(GameMessage msg){
         //Debug.Log(msg.score);
-        int currBeat = (int)msg.scoreItem.scoreItemType;
-        int combo = ComboTracker.GetCombo();
-        int previousAvg = ScoreTracker.GetLastItemsAvarage(avgCount);
+        float currBeat = (float)msg.scoreItem.scoreItemType;
+        float combo = (float)ComboTracker.GetCombo();
+        float previousAvg = ScoreTracker.GetLastItemsAvarage(avgCount);
 
-
-        performance += ((3-currBeat)+combo*comboIncrease)*currBeatWeigth + ((3-currBeat)-(3-previousAvg))*(1-currBeatWeigth);
+        if(currBeat >= 2){
+            currBeat *= missPunish;
+        }
+        performance += ((1.5f-currBeat)+combo*comboIncrease)*currBeatWeigth + ((1.5f-currBeat)-(1.5f-previousAvg))*(1-currBeatWeigth);
         //Debug.Log(3-currBeat + " " + ((3-currBeat)+combo*comboIncrease)*currBeatWeigth + " " + ((3-currBeat)-(3-previousAvg))*(1-currBeatWeigth));
+        if(performance > performaceForReactionLevels[0]+10){
+            performance = performaceForReactionLevels[0]+10;
+        }
 
         int LaughBooLevel = performaceForReactionLevels.Length-1;
         for (int i = performaceForReactionLevels.Length-1; i >= 0; i--)
