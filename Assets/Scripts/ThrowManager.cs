@@ -50,14 +50,15 @@ public class ThrowManager : MonoBehaviour
         hate += Time.deltaTime;
         if (hate > HateNeededToThrow())
         {
-            EventCoordinator.TriggerEvent(EventName.Item.Throw(), new GameMessage());
+            var type = itemPrefabSet.throwItemPrefabs.ElementAt(Random.Range(0, itemPrefabSet.throwItemPrefabs.Length)).type;
+            EventCoordinator.TriggerEvent(EventName.Item.Throw(), new GameMessage().WithRBeatType(type));
             hate = 0;
         }
     }
 
     void OnThrow(GameMessage msg)
     {
-        StartCoroutine(ThrowAnimation());
+        StartCoroutine(ThrowAnimation(msg.rBeatType));
     }
 
     void OnCrowdStateChanged(GameMessage msg)
@@ -65,12 +66,12 @@ public class ThrowManager : MonoBehaviour
         currentCrowdState = msg.intMessage;
     }
 
-    IEnumerator ThrowAnimation()
+    IEnumerator ThrowAnimation(ReverseBeatType type)
     {
         float startTime = Time.time;
+        var itemPrefab = itemPrefabSet.throwItemPrefabs.Single(i => i.type == type);
 
-        var typeAndItem = itemPrefabSet.throwItemPrefabs.ElementAt(Random.Range(0, itemPrefabSet.throwItemPrefabs.Length));
-        var itemInstance = Instantiate(typeAndItem.prefab, thrower.transform.position, Quaternion.identity, transform);
+        var itemInstance = Instantiate(itemPrefab.prefab, thrower.transform.position, Quaternion.identity, transform);
         // Detach from thrower if the crowd moves?
         var throwPosition = thrower.transform.position;
 
@@ -89,7 +90,7 @@ public class ThrowManager : MonoBehaviour
                 // Show one last frame
                 yield return null;
 
-                EventCoordinator.TriggerEvent(EventName.Item.CheckHit(), new GameMessage().WithRBeatType(typeAndItem.type));
+                EventCoordinator.TriggerEvent(EventName.Item.CheckHit(), new GameMessage().WithRBeatType(type));
                 Destroy(itemInstance.gameObject);
                 break;
             }
