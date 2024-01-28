@@ -38,7 +38,9 @@ public class BeatHit : MonoBehaviour
                 target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
                 animator.enabled = true;
                 animator.Play("DestroyBeatHit");
-                Destroy(gameObject, 0.3f);
+                Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+                //Destroy(gameObject, 0.9f);
+                //StartCoroutine(DestroyTimer());
             }
         }
     }
@@ -50,4 +52,11 @@ public class BeatHit : MonoBehaviour
     {
         
     }
+
+    //IEnumerator DestroyTimer()
+    //{
+    //    animator.Play("DestroyBeatHit");
+    //    yield return new WaitForSeconds(0.3f);
+    //    Destroy(gameObject);
+    //}
 }
