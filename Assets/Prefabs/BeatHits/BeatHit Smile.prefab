@@ -139,7 +139,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8766165441825122440}
   - component: {fileID: 4383807250906629096}
-  - component: {fileID: 8261427585119434018}
   m_Layer: 0
   m_Name: BeatHit Smile
   m_TagString: Untagged
@@ -187,19 +186,12 @@ MonoBehaviour:
   target: {fileID: 0}
   overFlyTime: 0.25
   flyProgress: 0
-<<<<<<< HEAD
 --- !u!1 &8876248031972692294
 GameObject:
-=======
---- !u!95 &8261427585119434018
-Animator:
-  serializedVersion: 5
->>>>>>> 0f3192d (add destoy anim for beat hit)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8664142057600797883}
@@ -278,19 +270,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
-  m_GameObject: {fileID: 7277058213527398194}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43caa1d802cb9434384bdbcb35f303f9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
->>>>>>> 0f3192d (add destoy anim for beat hit)
