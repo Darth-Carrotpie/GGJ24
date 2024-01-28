@@ -16,6 +16,7 @@ public class BeatHit : MonoBehaviour
     float flySpeed;
 
     private Animator animator;
+    bool dead;
 
     void Start()
     {
@@ -33,14 +34,18 @@ public class BeatHit : MonoBehaviour
         if (flyProgress > 1f)
         {
             flyProgress += Time.deltaTime / flyTime;
-            if(flyProgress > 1f + +overFlyTime)
+            if(flyProgress > 1f + overFlyTime)
             {
-                target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
-                animator.enabled = true;
-                animator.Play("DestroyBeatHit");
-                Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
-                //Destroy(gameObject, 0.9f);
+                if (!dead)
+                {
+                    target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
+                    dead = true;
+                    animator.enabled = true;
+                    animator.Play("DestroyBeatHit");
+                    Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+                //Destroy(gameObject);
                 //StartCoroutine(DestroyTimer());
+                }
             }
         }
     }

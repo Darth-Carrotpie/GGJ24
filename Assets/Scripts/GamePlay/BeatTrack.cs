@@ -12,6 +12,7 @@ public class BeatTrack : MonoBehaviour
     public ForwardBeatType beatType;
 
     public GameObject beatHitPrefab;
+    [SerializeField]
     public Queue<ForwardBeat> beatQueue;
 
     public float flyTime = 4f;
