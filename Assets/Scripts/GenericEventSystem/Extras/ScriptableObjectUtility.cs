@@ -3,6 +3,7 @@ using UnityEditor;
 using System.IO;
 using System.Linq;
 
+#if UNITY_EDITOR
 public static class ScriptableObjectUtility
 {
     /// <summary>
@@ -49,3 +50,4 @@ public static class ScriptableObjectUtility
         AssetDatabase.SaveAssets();
     }
 }
+#endif

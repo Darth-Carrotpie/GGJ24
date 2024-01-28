@@ -5,6 +5,7 @@ using UnityEngine;
 // The property drawer class should be placed in an editor script, inside a folder called Editor.
 // Tell the ArrayDrawer that it is a drawer for properties with the ArrayAttribute.
 namespace GenericEventSystem {
+#if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ArrayAttribute))]
     public class ArrayDrawer : PropertyDrawer {
         const float widthBt = 35;
@@ -81,4 +82,5 @@ namespace GenericEventSystem {
             return EditorGUI.GetPropertyHeight(property);
         }
     }
+#endif
 }

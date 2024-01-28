@@ -55,6 +55,7 @@ public class BeatmapEditor : Singleton<BeatmapEditor>
 
         cont.RemoveCube(removeAt);
     }
+#if UNITY_EDITOR
     public static GameObject OnBeatEdit(Beatmap beatmap, ForwardBeat beat, int indexAt)
     {
         ForwardBeatType thisType = beatmap.type;
@@ -62,6 +63,8 @@ public class BeatmapEditor : Singleton<BeatmapEditor>
 
         return cont.EditCube(indexAt, beat);
     }
+#endif
+
     public static GameObject GetBeatAt(Beatmap beatmap, int index)
     {
         ForwardBeatType thisType = beatmap.type;

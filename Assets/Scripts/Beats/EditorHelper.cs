@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using GenericEventSystem;
 using UnityEditor;
+#if UNITY_EDITOR
 public class EditorHelper : GenericEventSystem.Singleton<EditorHelper>
 {
     public static void DrawUILine(Color color, int thickness = 2, int padding = 10)
@@ -16,3 +17,4 @@ public class EditorHelper : GenericEventSystem.Singleton<EditorHelper>
         EditorGUI.DrawRect(r, color);
     }
 }
+#endif

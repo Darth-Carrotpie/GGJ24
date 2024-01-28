@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 //Made this using info from this post: https://forum.unity.com/threads/display-a-list-class-with-a-custom-editor-script.227847/
+#if UNITY_EDITOR
 [InitializeOnLoad]
 [CustomEditor(typeof(Beatmap))]
 public class BeatmapInspector : Editor
@@ -217,4 +218,6 @@ public class BeatmapInspector : Editor
             default: return Color.black;
         }
     }*/
+
 }
+#endif

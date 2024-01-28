@@ -21,6 +21,7 @@ public class BeatCubeContainer : MonoBehaviour
     {
         
     }
+#if UNITY_EDITOR
     public GameObject EditCube(int indexAt, ForwardBeat beat)
     {
         GameObject cube = cubes[indexAt];
@@ -34,6 +35,7 @@ public class BeatCubeContainer : MonoBehaviour
         Selection.activeTransform = newCube.transform;
         return newCube;
     }
+#endif
     public GameObject GetBeatCubeAt(int indexAt)
     {
         return cubes[indexAt];

@@ -19,6 +19,7 @@ public class Beatmap : MonoBehaviour
         beats.RemoveAt(index);
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (BeatmapEditor.Instance == null)
@@ -33,5 +34,6 @@ public class Beatmap : MonoBehaviour
             }
         }
     }
+#endif
 
 }

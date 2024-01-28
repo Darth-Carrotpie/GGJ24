@@ -2,9 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 namespace GenericEventSystem {
-  public static class PropertyDrawersHelper {
+#if UNITY_EDITOR
+  public static class PropertyDrawersHelper
+    {
 
-    public static string[] AllSceneNames() {
+        public static string[] AllSceneNames() {
       var temp = new List<string>();
       foreach (UnityEditor.EditorBuildSettingsScene S in UnityEditor.EditorBuildSettings.scenes) {
         if (S.enabled) {
@@ -21,4 +23,5 @@ namespace GenericEventSystem {
       return EventName.Get().ToArray();
     }
   }
+#endif
 }

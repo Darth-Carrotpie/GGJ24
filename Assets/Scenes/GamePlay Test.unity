@@ -6202,7 +6202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
-  enableDebugging: 1
+  enableDebugging: 0
   ignoreEvents:
     list: []
     indexes: 
