@@ -17,10 +17,11 @@ public class CharAnimController : MonoBehaviour
 
     bool delay;
     float timer;
-    
+
     void Start()
     {
-        EventCoordinator.StartListening(EventName.Item.CheckHit(), OnCheckHit);
+        EventCoordinator.StartListening(EventName.Item.Hit(), OnHit);
+        EventCoordinator.StartListening(EventName.Item.Dodge(), OnDodge);
         EventCoordinator.StartListening(EventName.Beats.BeatCreated(), OnBeatHit);
     }
     private void Update()
@@ -39,7 +40,11 @@ public class CharAnimController : MonoBehaviour
     {
         ToTalk();
     }
-    void OnCheckHit(GameMessage msg)
+    void OnHit(GameMessage msg)
+    {
+        ToState(hit);
+    }
+    void OnDodge(GameMessage msg)
     {
 
         switch (msg.rBeatType)
@@ -48,6 +53,7 @@ public class CharAnimController : MonoBehaviour
             case ReverseBeatType.Tomato: ToState(tomatoe); break;
             case ReverseBeatType.Chair: ToState(sit); break;
             case ReverseBeatType.Bottle: ToState(drinkIt); break;
+            default: Debug.LogError("Dodged invalid: " + msg); break;
         }
     }
 

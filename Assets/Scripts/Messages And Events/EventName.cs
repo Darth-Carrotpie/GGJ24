@@ -14,11 +14,20 @@ namespace GenericEventSystem {
         {
             // Trigger when using input to dodge reverse beats
             public static string DodgeInput() { return "Item_DodgeInput"; }
-            // Trigger to throw item
+
+            // Trigger to throw item, contains type
+
             public static string Throw() { return "Item_Throw"; }
+
             // Triggered when the item reaches destination
             public static string CheckHit() { return "Item_CheckHit"; }
-            public static List<string> Get() { return new List<string> { DodgeInput(), Throw(), CheckHit() }; }
+
+            // Triggered when the item hits the commedian, contains type
+            public static string Hit() { return "Item_Hit"; }
+
+            // Triggered when the item was dodged, contains type
+            public static string Dodge() { return "Item_Dodge"; }
+            public static List<string> Get() { return new List<string> { DodgeInput(), Throw(), CheckHit(), Hit(), Dodge() }; }
         }
         public class Score {
             public static string ScoreIncreased() { return "World_ScoreIncreased"; }
