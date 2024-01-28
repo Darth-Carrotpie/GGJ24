@@ -169,6 +169,5 @@ public class LaughBooController : MonoBehaviour
     void GetReactionValue(GameMessage msg)
     {
         crowdReactionValue = msg.intMessage;
-        Debug.Log(msg.intMessage);
     }
 }

@@ -15,8 +15,8 @@ public class CharAnimController : MonoBehaviour
 
     public GameObject currentTalk;
 
-    bool delay;
-    float timer;
+    public bool delay;
+    public float timer;
 
     void Start()
     {
@@ -29,11 +29,11 @@ public class CharAnimController : MonoBehaviour
         if (delay)
         {
             timer += Time.deltaTime;
-        }
-        if (timer > 1.0f)
-        {
-            delay = false;
-            ToIdle();
+            if (timer > 1.0f)
+            {
+                delay = false;
+                ToIdle();
+            }
         }
     }
     void OnBeatHit(GameMessage msg)
