@@ -54,7 +54,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 4
     length: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 2
     length: 0
@@ -79,12 +79,17 @@ MonoBehaviour:
   - beatTime: 0.25
     length: 0
     isDirty: 0
-    _beatLengthType: 0
+    _beatLengthType: 2
     _beatTimeType: 2
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 0
+    _beatTimeType: 1
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
@@ -94,17 +99,12 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
-  - beatTime: 0.125
-    length: 1
-    isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 4
     length: 0
@@ -114,28 +114,28 @@ MonoBehaviour:
   - beatTime: 4
     length: 0
     isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 7
+    _beatLengthType: 3
+    _beatTimeType: 6
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 4
     length: 0
     isDirty: 0
     _beatLengthType: 0
-    _beatTimeType: 7
+    _beatTimeType: 6
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 4
     length: 0
     isDirty: 0
     _beatLengthType: 0
-    _beatTimeType: 7
+    _beatTimeType: 5
   - beatTime: 0.25
     length: 1
     isDirty: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   - beatTime: 0.25
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 2
   - beatTime: 0.125
     length: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.25
     length: 0
@@ -220,23 +220,23 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 5
     isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 1
+  - beatTime: 0.125
+    length: 0
+    isDirty: 0
+    _beatLengthType: 0
+    _beatTimeType: 0
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 6
+  - beatTime: 0.125
+    length: 2
+    isDirty: 0
     _beatLengthType: 3
     _beatTimeType: 0
-  - beatTime: 0.125
-    length: 0
-    isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 0
-  - beatTime: 4
-    length: 0
-    isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 7
-  - beatTime: 0.125
-    length: 2
-    isDirty: 0
-    _beatLengthType: 2
-    _beatTimeType: 0
   - beatTime: 4
     length: 0
     isDirty: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   - beatTime: 4
     length: 0
     isDirty: 0
-    _beatLengthType: 0
+    _beatLengthType: 3
     _beatTimeType: 7
   - beatTime: 0.125
     length: 1
@@ -265,7 +265,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.25
     length: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.25
     length: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
 --- !u!1 &7110418991519391889
 GameObject:
@@ -356,7 +356,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
@@ -371,12 +371,12 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 4
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 7
   - beatTime: 0.125
     length: 0
@@ -392,11 +392,11 @@ MonoBehaviour:
     length: 0
     isDirty: 0
     _beatLengthType: 0
-    _beatTimeType: 5
+    _beatTimeType: 4
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 1
     length: 0
@@ -416,32 +416,32 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
+    _beatLengthType: 0
+    _beatTimeType: 4
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
@@ -456,12 +456,12 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.125
     length: 5
@@ -481,17 +481,17 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
   - beatTime: 0.25
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 3
     _beatTimeType: 2
   - beatTime: 0.125
     length: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
   - beatTime: 0.25
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 2
   - beatTime: 0.125
     length: 0
@@ -526,7 +526,7 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
 --- !u!1 &8078668951198511043
 GameObject:
@@ -631,8 +631,38 @@ MonoBehaviour:
   - beatTime: 4
     length: 0
     isDirty: 0
+    _beatLengthType: 3
+    _beatTimeType: 6
+  - beatTime: 4
+    length: 0
+    isDirty: 0
     _beatLengthType: 0
+    _beatTimeType: 6
+  - beatTime: 4
+    length: 0
+    isDirty: 0
+    _beatLengthType: 2
     _beatTimeType: 7
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 1
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 0
+  - beatTime: 0.125
+    length: 1
+    isDirty: 0
+    _beatLengthType: 2
+    _beatTimeType: 0
   - beatTime: 4
     length: 0
     isDirty: 0
@@ -651,42 +681,12 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
-  - beatTime: 0.125
-    length: 1
-    isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
-  - beatTime: 4
-    length: 0
-    isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 7
-  - beatTime: 4
-    length: 0
-    isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 7
-  - beatTime: 0.125
-    length: 1
-    isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
-  - beatTime: 0.125
-    length: 1
-    isDirty: 0
-    _beatLengthType: 1
-    _beatTimeType: 0
-  - beatTime: 0.125
-    length: 1
-    isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.125
     length: 1
@@ -701,8 +701,8 @@ MonoBehaviour:
   - beatTime: 4
     length: 0
     isDirty: 0
-    _beatLengthType: 0
-    _beatTimeType: 7
+    _beatLengthType: 3
+    _beatTimeType: 6
   - beatTime: 1
     length: 0
     isDirty: 0
@@ -711,15 +711,15 @@ MonoBehaviour:
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
   - beatTime: 0.25
     length: 0
     isDirty: 0
     _beatLengthType: 0
-    _beatTimeType: 2
+    _beatTimeType: 1
   - beatTime: 0.125
     length: 1
     isDirty: 0
-    _beatLengthType: 1
+    _beatLengthType: 2
     _beatTimeType: 0
