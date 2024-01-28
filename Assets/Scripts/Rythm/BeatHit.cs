@@ -15,8 +15,13 @@ public class BeatHit : MonoBehaviour
     Vector3 startPos;
     float flySpeed;
 
+    private Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
+
         distanceToTarget = (target.transform.position - transform.position).magnitude;
         flySpeed = distanceToTarget / flyTime;
     }
@@ -31,7 +36,9 @@ public class BeatHit : MonoBehaviour
             if(flyProgress > 1f + +overFlyTime)
             {
                 target.gameObject.GetComponent<BeatHitChecker>().RemoveBeatHit(this);
-                Destroy(gameObject);
+                animator.enabled = true;
+                animator.Play("DestroyBeatHit");
+                Destroy(gameObject, 0.3f);
             }
         }
     }
@@ -41,6 +48,6 @@ public class BeatHit : MonoBehaviour
     }
     public void SpawnDestructionFx()
     {
-
+        
     }
 }
