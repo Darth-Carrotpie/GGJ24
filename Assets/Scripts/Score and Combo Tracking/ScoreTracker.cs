@@ -18,22 +18,24 @@ public class ScoreTracker : Singleton<ScoreTracker>
     List<ScoreItem> scoreItems = new List<ScoreItem>();
     public int totalScore = 0;
 
-    public static void AddScore(float deviation)
+    public static void AddScore(float deviation, ForwardBeatType beatType)
     {
         ScoreItem newScoreItem = new ScoreItem();
         ScoreItemType type = Instance.GetTypeFromDeviation(deviation);
+        Debug.Log(deviation);
+        Debug.Log(type);
         newScoreItem.scoreItemType = type;
         newScoreItem.deviation = deviation;
-        AddScore(newScoreItem);
+        AddScore(newScoreItem, beatType);
     }
 
-    public static void AddScore(ScoreItem newScoreItem)
+    public static void AddScore(ScoreItem newScoreItem, ForwardBeatType beatType)
     {
         newScoreItem.score = Instance.GetDefaultValue(newScoreItem.scoreItemType);
         newScoreItem.currentCombo = ComboTracker.GetCombo();
         Instance.totalScore += newScoreItem.score * newScoreItem.currentCombo;
         Instance.scoreItems.Add(newScoreItem);
-        EventCoordinator.TriggerEvent(EventName.Score.ScoreIncreased(), GameMessage.Write().WithScoreItem(newScoreItem));
+        EventCoordinator.TriggerEvent(EventName.Score.ScoreIncreased(), GameMessage.Write().WithScoreItem(newScoreItem).WithFBeatType(beatType));
         Instance.IncreaseCombo(newScoreItem.scoreItemType);
     }
     public static ScoreItem GetLastScore()

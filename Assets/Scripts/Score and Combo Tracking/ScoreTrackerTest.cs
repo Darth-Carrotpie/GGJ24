@@ -9,7 +9,7 @@ public class ScoreTrackerTest : MonoBehaviour
     [EditorCools.Button]
     void AddScore()
     {
-        ScoreTracker.AddScore(scoreSize);
+        //ScoreTracker.AddScore(scoreSize);
     }
     [EditorCools.Button]
     void GetScore()
