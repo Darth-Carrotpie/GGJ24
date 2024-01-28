@@ -818,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254581014}
   - component: {fileID: 254581015}
+  - component: {fileID: 254581016}
   m_Layer: 0
   m_Name: Light 2D (1)
   m_TagString: Untagged
@@ -834,7 +835,7 @@ Transform:
   m_GameObject: {fileID: 254581013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.95469874, w: -0.29757407}
-  m_LocalPosition: {x: -1.36, y: 1.33, z: 0}
+  m_LocalPosition: {x: -0.63, y: 0.7, z: 0}
   m_LocalScale: {x: 2.4999995, y: 2.4999995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -890,6 +891,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &254581016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254581013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb66934a4089214094a632b5714814b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260867092
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2542,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.980238, b: 0.3050313, a: 1}
-  m_Intensity: 0.01
+  m_Intensity: 0.02
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000035e6df2679114eae4b3581128f954eb85f5166ea87fa186d31ecb384abe9145e6d349a53257d30e6
@@ -4249,7 +4262,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 3073
+  m_RenderingLayerMask: 1025
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -4270,8 +4283,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2074579575
-  m_SortingLayer: 11
+  m_SortingLayerID: 1402614893
+  m_SortingLayer: 8
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: cf58e6f6b5aa35f4ebbdedd5ffbb2096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

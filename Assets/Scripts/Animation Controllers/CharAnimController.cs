@@ -13,6 +13,9 @@ public class CharAnimController : MonoBehaviour
     public GameObject talk;
     public GameObject tomatoe;
 
+    public GameObject currentTalk;
+
+    bool delay;
     float timer;
     
     void Start()
@@ -22,16 +25,19 @@ public class CharAnimController : MonoBehaviour
     }
     private void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > 1.0f)
+        if (delay)
         {
-            ToState(idle);
+            timer += Time.deltaTime;
+        }
+        if (timer > 1.0f)
+        {
+            delay = false;
+            ToIdle();
         }
     }
     void OnBeatHit(GameMessage msg)
     {
-        ToState(talk);
-        timer = 0;
+        ToTalk();
     }
     void OnCheckHit(GameMessage msg)
     {
@@ -43,11 +49,35 @@ public class CharAnimController : MonoBehaviour
             case ReverseBeatType.Chair: ToState(sit); break;
             case ReverseBeatType.Bottle: ToState(drinkIt); break;
         }
-        timer = 0;
     }
 
+    void ToIdle()
+    {
+        drinkIt.SetActive(false);
+        duck.SetActive(false);
+        hit.SetActive(false);
+        idle.SetActive(true);
+        sit.SetActive(false);
+        talk.SetActive(false);
+        tomatoe.SetActive(false);
+    }
+    void ToTalk()
+    {
+        drinkIt.SetActive(false);
+        duck.SetActive(false);
+        hit.SetActive(false);
+        idle.SetActive(false);
+        sit.SetActive(false);
+        talk.SetActive(true);
+        tomatoe.SetActive(false);
+    }
     void ToState(GameObject objAct)
     {
+        if (currentTalk == objAct)
+            return;
+
+        currentTalk = objAct;
+
         drinkIt.SetActive(false);
         duck.SetActive(false);
         hit.SetActive(false);
@@ -55,6 +85,9 @@ public class CharAnimController : MonoBehaviour
         sit.SetActive(false);
         talk.SetActive(false);
         tomatoe.SetActive(false);
+
         objAct.SetActive(true);
-}
+        timer = 0;
+        delay = true;
+    }
 }
